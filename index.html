@@ -190,10 +190,6 @@
                             <path d="M4 12h16m-6-6 6 6-6 6" />
                         </svg></a>
                 </div>
-                <div class="menu-controls" role="group" aria-label="Tampilkan waktu makan"><button class="active"
-                        data-filter="all" aria-pressed="true">Siang & malam</button><button data-filter="lunch"
-                        aria-pressed="false">Makan siang</button><button data-filter="dinner" aria-pressed="false">Makan
-                        malam</button></div>
                 <div class="weekly-grid" id="weekly-menu"></div>
                 <p class="fine-print">Menu dan kalori di atas merupakan data contoh. Foto menunjukkan contoh penyajian;
                     porsi dan kalori mengikuti paket pilihanmu.</p>
@@ -410,66 +406,68 @@
                                 <path d="M4 12h16m-6-6 6 6-6 6" />
                             </svg></button></div>
                 </div>
-                <div class="testimonial-track" id="testimonial-track">
-                    <div class="testimonial-column">
-                        <article class="video-slot tall" data-video-index="0"><img src="assets/originals/meal-1.jpg"
-                                alt="Contoh menu ayam dan sayuran" loading="lazy">
-                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="m9 5 11 7-11 7Z" />
-                                    </svg></span><strong>Setiap hari punya cerita.</strong><small>Video pelanggan segera
-                                    hadir</small></div>
-                        </article>
-                        <article class="story-card"><span>Rasa rumah</span>
-                            <h3>Menu yang akrab.<br>Cara makan yang lebih praktis.</h3>
-                            <p>Makanan favorit, dengan porsi yang diperhatikan.</p>
-                        </article>
-                    </div>
-                    <div class="testimonial-column offset">
-                        <article class="story-card"><span>Di sela kesibukan</span>
-                            <h3>Lebih banyak waktu<br>untuk menjalani hari.</h3>
-                            <p>Kami siapkan makan siang dan malam, kamu fokus pada rutinitasmu.</p>
-                        </article>
-                        <article class="video-slot tall" data-video-index="1"><img src="assets/originals/meal-6.jpg"
-                                alt="Contoh menu chicken katsu" loading="lazy">
-                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="m9 5 11 7-11 7Z" />
-                                    </svg></span><strong>Teman makan di hari sibuk.</strong><small>Video pelanggan
-                                    segera hadir</small></div>
-                        </article>
-                    </div>
-                    <div class="testimonial-column">
-                        <article class="video-slot tall" data-video-index="2"><img src="assets/originals/meal-4.jpg"
-                                alt="Contoh menu fish and chips dan salad" loading="lazy">
-                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="m9 5 11 7-11 7Z" />
-                                    </svg></span><strong>Enak yang ditunggu.</strong><small>Video pelanggan segera
-                                    hadir</small></div>
-                        </article>
-                        <article class="story-card"><span>Kebiasaan baik</span>
-                            <h3>Mulai dari satu<br>waktu makan.</h3>
-                            <p>Pilih yang sesuai dengan tujuan dan keseharianmu.</p>
-                        </article>
-                    </div>
-                    <div class="testimonial-column offset">
-                        <article class="story-card"><span>Teman rutinitasmu</span>
-                            <h3>Makan seimbang,<br>tanpa ribet menyiapkan.</h3>
-                            <p>Menu berganti untuk menemani keseharianmu.</p>
-                        </article>
-                        <article class="video-slot tall" data-video-index="3"><img src="assets/originals/meal-2.jpg"
-                                alt="Contoh menu pasta dan sayuran Aformosa" loading="lazy">
-                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="m9 5 11 7-11 7Z" />
-                                    </svg></span><strong>Praktis di setiap hari.</strong><small>Video pelanggan segera
-                                    hadir</small></div>
-                        </article>
+                <div class="testimonial-viewport">
+                    <div class="testimonial-track" id="testimonial-track">
+                        <div class="testimonial-column">
+                            <article class="video-slot tall" data-video-index="0"><img src="assets/originals/meal-1.jpg"
+                                    alt="Contoh menu ayam dan sayuran" loading="lazy">
+                                <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m9 5 11 7-11 7Z" />
+                                        </svg></span><strong>Setiap hari punya cerita.</strong><small>Video pelanggan segera
+                                        hadir</small></div>
+                            </article>
+                            <article class="story-card"><span>Rasa rumah</span>
+                                <h3>Menu yang akrab.<br>Cara makan yang lebih praktis.</h3>
+                                <p>Makanan favorit, dengan porsi yang diperhatikan.</p>
+                            </article>
+                        </div>
+                        <div class="testimonial-column offset">
+                            <article class="story-card"><span>Di sela kesibukan</span>
+                                <h3>Lebih banyak waktu<br>untuk menjalani hari.</h3>
+                                <p>Kami siapkan makan siang dan malam, kamu fokus pada rutinitasmu.</p>
+                            </article>
+                            <article class="video-slot tall" data-video-index="1"><img src="assets/originals/meal-6.jpg"
+                                    alt="Contoh menu chicken katsu" loading="lazy">
+                                <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m9 5 11 7-11 7Z" />
+                                        </svg></span><strong>Teman makan di hari sibuk.</strong><small>Video pelanggan
+                                        segera hadir</small></div>
+                            </article>
+                        </div>
+                        <div class="testimonial-column">
+                            <article class="video-slot tall" data-video-index="2"><img src="assets/originals/meal-4.jpg"
+                                    alt="Contoh menu fish and chips dan salad" loading="lazy">
+                                <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m9 5 11 7-11 7Z" />
+                                        </svg></span><strong>Enak yang ditunggu.</strong><small>Video pelanggan segera
+                                        hadir</small></div>
+                            </article>
+                            <article class="story-card"><span>Kebiasaan baik</span>
+                                <h3>Mulai dari satu<br>waktu makan.</h3>
+                                <p>Pilih yang sesuai dengan tujuan dan keseharianmu.</p>
+                            </article>
+                        </div>
+                        <div class="testimonial-column offset">
+                            <article class="story-card"><span>Teman rutinitasmu</span>
+                                <h3>Makan seimbang,<br>tanpa ribet menyiapkan.</h3>
+                                <p>Menu berganti untuk menemani keseharianmu.</p>
+                            </article>
+                            <article class="video-slot tall" data-video-index="3"><img src="assets/originals/meal-2.jpg"
+                                    alt="Contoh menu pasta dan sayuran Aformosa" loading="lazy">
+                                <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m9 5 11 7-11 7Z" />
+                                        </svg></span><strong>Praktis di setiap hari.</strong><small>Video pelanggan segera
+                                        hadir</small></div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>

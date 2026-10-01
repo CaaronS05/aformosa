@@ -23,26 +23,133 @@ menuData.days.forEach(day => {
   card.innerHTML = `<div class="menu-card-heading"><span class="day-pill">${day.day}</span><time datetime="${day.date}">${new Date(day.date + 'T12:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}</time></div><div class="menu-photo"><img src="${day.image === 1 ? 'assets/hero-studio.jpg' : 'assets/menu-studio-' + day.image + '.jpg'}" alt="Visual penyajian menu Aformosa untuk ${day.day}" width="1024" height="1536" loading="lazy"></div><div class="meal-details">${['lunch', 'dinner'].map(type => `<div data-meal="${type}"><span class="meal-type"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">${smallIcons[type]}</svg>${type === 'lunch' ? 'Makan siang' : 'Makan malam'}</span><h3>${day[type].name}</h3><p>${day[type].description}</p><span class="kcal">${day[type].kcal} kkal</span></div>`).join('')}</div>`;
   weeklyMenu.append(card);
 });
-document.querySelectorAll('[data-filter]').forEach(btn => btn.addEventListener('click', () => {
-  document.querySelectorAll('[data-filter]').forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-pressed', String(b === btn)); });
-  document.querySelectorAll('[data-meal]').forEach(m => m.hidden = btn.dataset.filter !== 'all' && m.dataset.meal !== btn.dataset.filter);
-  document.querySelectorAll('.meal-details').forEach(m => m.style.gridTemplateColumns = btn.dataset.filter === 'all' ? '' : '1fr');
-
-  if (window.ScrollTrigger) ScrollTrigger.refresh();
-}));
 // Isi src, nama, dan caption setelah video pelanggan tersedia.
 const testimonialVideos = [
-  { src: '', name: '', caption: '' },
-  { src: '', name: '', caption: '' },
-  { src: '', name: '', caption: '' },
-  { src: '', name: '', caption: '' }
+  {
+    src: 'assets/videos/testimonial-1.mp4',
+    name: '',
+    caption: ''
+  },
+  {
+    src: 'assets/videos/testimonial-2.mp4',
+    name: '',
+    caption: ''
+  },
+  {
+    src: 'assets/videos/testimonial-3.mp4',
+    name: '',
+    caption: ''
+  },
+  {
+    src: 'assets/videos/testimonial-5.mp4',
+    name: '',
+    caption: ''
+  }
 ];
 testimonialVideos.forEach((item, index) => {
-  if (!item.src) return;
+  if (!item || !item.src) return;
   const slot = document.querySelector(`[data-video-index="${index}"]`);
-  slot.replaceChildren(); slot.classList.add('has-video');
-  const video = document.createElement('video'); video.src = item.src; video.controls = true; video.playsInline = true; video.preload = 'metadata'; video.setAttribute('aria-label', item.caption || 'Video pengalaman pelanggan Aformosa'); slot.append(video);
-  if (item.name || item.caption) { const caption = document.createElement('div'); caption.className = 'video-placeholder'; const name = document.createElement('strong'); name.textContent = item.name; const text = document.createElement('small'); text.textContent = item.caption; caption.append(name, text); slot.append(caption); }
+  if (!slot) return;
+
+  const originalChildren = Array.from(slot.childNodes).map(node => node.cloneNode(true));
+  const video = document.createElement('video');
+  video.src = item.src;
+  video.autoplay = true;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.controls = false;
+  video.preload = 'metadata';
+  video.setAttribute('autoplay', '');
+  video.setAttribute('muted', '');
+  video.setAttribute('loop', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('preload', 'metadata');
+  video.setAttribute('aria-label', item.caption || 'Video pengalaman pelanggan Aformosa');
+
+  video.addEventListener('error', () => {
+    slot.classList.remove('has-video');
+    slot.replaceChildren(...originalChildren);
+  }, { once: true });
+
+  const startAutoplay = () => {
+    video.play().catch(() => {});
+  };
+  video.addEventListener('canplay', startAutoplay, { once: true });
+  startAutoplay();
+
+  slot.replaceChildren(video);
+  slot.classList.add('has-video');
+
+  const soundBtn = document.createElement('button');
+  soundBtn.type = 'button';
+  soundBtn.className = 'video-sound-toggle';
+  soundBtn.setAttribute('aria-label', 'Nyalakan suara');
+  soundBtn.setAttribute('title', 'Nyalakan suara');
+
+  const volumeMutedSvg = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>';
+  const volumeHighSvg = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
+
+  soundBtn.innerHTML = volumeMutedSvg;
+
+  const updateSoundIcon = () => {
+    if (video.muted) {
+      soundBtn.innerHTML = volumeMutedSvg;
+      soundBtn.setAttribute('aria-label', 'Nyalakan suara');
+      soundBtn.setAttribute('title', 'Nyalakan suara');
+      soundBtn.classList.remove('is-unmuted');
+    } else {
+      soundBtn.innerHTML = volumeHighSvg;
+      soundBtn.setAttribute('aria-label', 'Matikan suara');
+      soundBtn.setAttribute('title', 'Matikan suara');
+      soundBtn.classList.add('is-unmuted');
+    }
+  };
+
+  soundBtn.addEventListener('pointerdown', e => e.stopPropagation());
+  soundBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
+  soundBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (video.muted) {
+      document.querySelectorAll('.video-slot video').forEach(otherVideo => {
+        if (otherVideo !== video) {
+          otherVideo.muted = true;
+          const otherBtn = otherVideo.parentElement?.querySelector('.video-sound-toggle');
+          if (otherBtn) {
+            otherBtn.innerHTML = volumeMutedSvg;
+            otherBtn.setAttribute('aria-label', 'Nyalakan suara');
+            otherBtn.setAttribute('title', 'Nyalakan suara');
+            otherBtn.classList.remove('is-unmuted');
+          }
+        }
+      });
+      video.muted = false;
+      video.play().catch(() => {});
+    } else {
+      video.muted = true;
+    }
+    updateSoundIcon();
+  });
+
+  slot.append(soundBtn);
+
+  if (item.name || item.caption) {
+    const caption = document.createElement('div');
+    caption.className = 'video-placeholder';
+    if (item.name) {
+      const name = document.createElement('strong');
+      name.textContent = item.name;
+      caption.append(name);
+    }
+    if (item.caption) {
+      const text = document.createElement('small');
+      text.textContent = item.caption;
+      caption.append(text);
+    }
+    slot.append(caption);
+  }
 });
 const track = document.querySelector('#testimonial-track');
 const testimonialMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -70,7 +177,15 @@ function setupTestimonialLoop() {
       copy.inert = true;
       copy.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
       copy.querySelectorAll('[data-video-index]').forEach(el => el.removeAttribute('data-video-index'));
-      copy.querySelectorAll('video').forEach(video => { video.muted = true; video.controls = false; video.removeAttribute('autoplay'); });
+      copy.querySelectorAll('video').forEach(video => {
+        video.autoplay = true;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.controls = false;
+        video.play().catch(() => {});
+      });
       track.append(copy);
     });
   }
@@ -109,7 +224,7 @@ testimonialMotion.addEventListener('change', setupTestimonialLoop);
 function animateTestimonials(time) {
   const delta = testimonialLastTime ? Math.min(time - testimonialLastTime, 50) : 0;
   testimonialLastTime = time;
-  const playingVideo = [...track.querySelectorAll('video')].some(video => !video.paused && !video.ended);
+  const playingVideo = [...track.querySelectorAll('video')].some(video => !video.paused && !video.ended && !video.muted);
   if (!testimonialMotion.matches && !document.hidden && !testimonialHovered && !testimonialTouched && !track.contains(document.activeElement) && !playingVideo && time >= testimonialPauseUntil && testimonialLoopWidth > 0) {
     testimonialPosition = (testimonialPosition + delta * 0.022) % testimonialLoopWidth;
     track.scrollLeft = testimonialPosition;
@@ -168,6 +283,12 @@ calculatorForm.addEventListener('submit', event => {
   document.querySelector('#calculator-output').hidden = false;
   const message = `Halo Aformosa, saya ${name}, ${age} tahun. Saya ingin konsultasi program makan sehat berdasarkan hasil kalkulator:\n\nTinggi: ${height} cm\nBerat: ${weight} kg\nBMI: ${bmiDisplay} (${category})\nPerkiraan BMR: ${bmrDisplay} kkal/hari\nAktivitas: ${activity.label}\nPerkiraan kalori harian: ${tdeeDisplay} kkal/hari\n\nBoleh dibantu rekomendasi program, menu, dan harganya?`;
   document.querySelector('#calculator-whatsapp').href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  requestAnimationFrame(() => {
+    document.querySelector('.calculator-results').scrollIntoView({
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  });
 });
 calculatorName.addEventListener('input', () => calculatorName.setCustomValidity(''));
 

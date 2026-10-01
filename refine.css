@@ -567,3 +567,23 @@ body .testimonial-track.is-looping {
 body .testimonial-track [data-loop-copy] {
     scroll-snap-align: none;
 }
+
+
+/* Keep mobile Hero benefit text above the bottom ingredient decoration. */
+@media (max-width: 768px) {
+    body .hero .container.hero-grid {
+        padding-bottom: 88px;
+    }
+
+    body .hero-benefits {
+        margin-top: 16px;
+        padding-top: 18px;
+        gap: 18px;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+body .calculator-results {
+    scroll-margin-top: 100px;
+}
