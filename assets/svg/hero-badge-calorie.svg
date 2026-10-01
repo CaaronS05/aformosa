@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 120" role="img" aria-label="500–650 kcal per meal">
+  <defs>
+    <filter id="calShadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#574235" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <g transform="rotate(9 116 60)">
+    <rect x="12" y="23" width="208" height="74" rx="37" fill="#FFFDF8" stroke="#574235" stroke-opacity="0.08" stroke-width="1.2" filter="url(#calShadow)"/>
+    <g transform="translate(27 41.5) scale(0.95)">
+      <path d="M17.5 1.5C18.5 10.5 29 15.5 29 27.5C29 35 23.5 39 16 39C8.5 39 3 35 3 27.5C3 22 5.8 18.5 9 15C9.6 19 11.5 21 14 21.8C12 13.5 13.2 6.5 17.5 1.5Z" fill="#FF9A2E"/>
+      <path d="M24.2 24.5C25.6 26.4 26.2 28.4 26 30.6" fill="none" stroke="#FFB65C" stroke-width="2" stroke-linecap="round"/>
+      <path d="M16.5 22.5C19.5 27 23.5 29.5 23.5 33.8C23.5 36.8 20.3 38.2 16.5 38.2C12.7 38.2 9.5 36.8 9.5 33.8C9.5 30 13.5 27.8 16.5 22.5Z" fill="#FFD36A"/>
+    </g>
+    <g font-family="Poppins, Montserrat, Inter, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" fill="#574235">
+      <text x="70" y="57" font-size="17.5" font-weight="800" letter-spacing="-0.2">500–650 KCAL</text>
+      <text x="69" y="77" font-size="15" font-weight="400">Per Meal</text>
+    </g>
+  </g>
+</svg>
