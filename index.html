@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#F9EEC7">
+    <meta name="description"
+        content="Aformosa Healthy Meal. Catering sehat dengan cita rasa rumahan, pilihan paket sesuai tujuan, dan menu yang berganti setiap minggu.">
+    <title>Aformosa Healthy Meal — Makan sehat, rasa rumah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="refine.css">
+    <script defer src="assets/gsap.min.js"></script>
+    <script defer src="assets/ScrollTrigger.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="refine.js"></script>
+</head>
+
+<body><a class="skip-link" href="#main">Lewati ke konten</a>
+    <header class="site-header">
+        <div class="container nav-inner"><a href="#beranda" class="brand" aria-label="Aformosa — Beranda"><img
+                    src="assets/logo.png" alt="Aformosa Healthy Meal" width="116" height="116"></a>
+            <nav id="navigation" aria-label="Navigasi utama"><a href="#beranda">Beranda</a><a href="#menu">Menu
+                    mingguan</a><a href="#paket">Paket</a><a href="#cara-pesan">Cara pesan</a><a
+                    href="#kalkulator">Kalkulator</a><a href="#faq">FAQ</a></nav><a class="button primary header-order"
+                href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                target="_blank" rel="noopener noreferrer">Pesan sekarang <svg aria-hidden="true" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12h16m-6-6 6 6-6 6" />
+                </svg></a><button class="nav-toggle" aria-expanded="false" aria-controls="navigation"
+                aria-label="Buka navigasi"><span></span><span></span></button>
+        </div>
+    </header>
+    <main id="main">
+        <section class="hero" id="beranda">
+            <div class="container hero-grid">
+                <div class="hero-copy"><span class="eyebrow spark">Your Personal Home Cook</span>
+                    <h1>Makan sehat,<br><span class="underline">rasa rumah.</span></h1>
+                    <p class="hero-description">Menu bergizi seimbang, dimasak segar setiap hari. Teman makan untuk
+                        rutinitasmu, dengan rasa yang selalu kamu tunggu.</p>
+                    <div class="hero-actions"><a class="button primary"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                            target="_blank" rel="noopener noreferrer">Konsultasi & pesan<svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a><a class="button outline" href="#menu">Lihat menu minggu ini<svg
+                                aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a></div>
+                    <div class="hero-points"><span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
+                                <path d="m4 21 11-11" />
+                            </svg>Segar setiap hari</span><span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 20v-6m7 6V9m7 11V4" />
+                            </svg>Porsi sesuai tujuan</span><span><svg aria-hidden="true" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 5c-3-3-7-1-8 2-1-3-5-5-8-2-4 4 2 10 8 15 6-5 12-11 8-15Z" />
+                            </svg>Rasa rumahan</span></div>
+                </div>
+                <div class="hero-visual">
+                    <div class="food-blob"></div><img class="hero-food" src="assets/hero-studio.jpg"
+                        alt="Ayam saus dengan kacang, nasi merah, sayuran, dan puding dalam kemasan Aformosa"
+                        width="1254" height="1254" fetchpriority="high"><span class="food-note top"><svg
+                            aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4v7m3-7v7m3-7v7M7 11v10m12-17c-4 4-4 8 0 9V4Zm0 9v8" />
+                        </svg><span>Lengkap & seimbang<small>Protein, karbohidrat, dan serat</small></span></span><span
+                        class="food-note bottom"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
+                            <path d="m4 21 11-11" />
+                        </svg>Dimasak segar setiap hari</span><svg class="doodle" viewBox="0 0 100 100"
+                        aria-hidden="true">
+                        <path d="M45 80C-5 40 10 5 40 35c20-50 60-10 5 45Z" fill="none" stroke="white"
+                            stroke-width="5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="city-strip"><span>Teman makan sehat
+                    di</span><strong>Surabaya</strong><i></i><strong>Bali</strong><i></i><strong>Jakarta</strong><i></i><strong>Tangerang</strong>
+            </div>
+        </section>
+        <section class="section benefits-section" id="tentang">
+            <div class="container">
+                <div class="section-heading centered"><span class="eyebrow spark">Kenapa Aformosa?</span>
+                    <h2>Sehat yang terasa enak.<br><span class="underline">Setiap hari.</span></h2>
+                    <p>Masakan rumahan dengan gizi yang diperhatikan.<br>Kamu tinggal menikmati, kami yang menyiapkan.
+                    </p>
+                </div>
+                <div class="benefit-grid">
+                    <article class="benefit"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
+                                <path d="m4 21 11-11" />
+                            </svg></span>
+                        <h3>Dimasak segar setiap hari</h3>
+                        <p>Bahan berkualitas, dimasak dengan perhatian.</p>
+                    </article>
+                    <article class="benefit"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 3c1 6-5 6-5 11a5 5 0 0 0 10 0c0-2-1-4-3-6 0 3-2 4-2 4s2-5 0-9Z" />
+                            </svg></span>
+                        <h3>Kalori lebih terarah</h3>
+                        <p>Informasi kalori disesuaikan dengan pilihan paket.</p>
+                    </article>
+                    <article class="benefit"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 20v-6m7 6V9m7 11V4" />
+                            </svg></span>
+                        <h3>Gizi yang seimbang</h3>
+                        <p>Protein, karbohidrat, dan serat dalam satu menu.</p>
+                    </article>
+                    <article class="benefit"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M3 5h11v13H3zM14 10h4l3 4v4h-7" />
+                                <circle cx="7" cy="18" r="2" />
+                                <circle cx="18" cy="18" r="2" />
+                            </svg></span>
+                        <h3>Diantar ke kotamu</h3>
+                        <p>Surabaya, Bali, Jakarta, dan Tangerang.</p>
+                    </article>
+                </div>
+                <div class="little-tags"><span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4v7m3-7v7m3-7v7M7 11v10m12-17c-4 4-4 8 0 9V4Zm0 9v8" />
+                        </svg>Makan siang & malam</span><span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="5" width="18" height="16" rx="3" />
+                            <path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1" />
+                        </svg>Menu berganti setiap minggu</span><span><svg aria-hidden="true" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M20 5c-3-3-7-1-8 2-1-3-5-5-8-2-4 4 2 10 8 15 6-5 12-11 8-15Z" />
+                        </svg>Dibuat dengan perhatian</span></div>
+            </div>
+        </section>
+        <section class="section menu-section" id="menu">
+            <div class="container">
+                <div class="section-heading centered"><span class="eyebrow spark">Menu mingguan</span>
+                    <h2>Setiap hari, <span class="underline">ada rasa baru.</span></h2>
+                    <p>Dari cita rasa lokal sampai menu favoritmu.<br>Kenalan dengan contoh menu Aformosa selama satu
+                        minggu.</p>
+                </div>
+                <div class="batch-bar">
+                    <div class="batch-title"><strong>Batch 367</strong><span><svg aria-hidden="true" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="5" width="18" height="16" rx="3" />
+                                <path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1" />
+                            </svg><span>5–10 Oktober<small>Contoh menu mingguan</small></span></span></div><a
+                        class="button primary"
+                        href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                        target="_blank" rel="noopener noreferrer">Tanya menu terbaru<svg aria-hidden="true"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12h16m-6-6 6 6-6 6" />
+                        </svg></a>
+                </div>
+                <div class="menu-controls" role="group" aria-label="Tampilkan waktu makan"><button class="active"
+                        data-filter="all" aria-pressed="true">Siang & malam</button><button data-filter="lunch"
+                        aria-pressed="false">Makan siang</button><button data-filter="dinner" aria-pressed="false">Makan
+                        malam</button></div>
+                <div class="weekly-grid" id="weekly-menu"></div>
+                <p class="fine-print">Menu dan kalori di atas merupakan data contoh. Foto menunjukkan contoh penyajian;
+                    porsi dan kalori mengikuti paket pilihanmu.</p>
+            </div>
+        </section>
+        <section class="section plans-section" id="paket">
+            <div class="container">
+                <div class="section-heading"><span class="eyebrow spark">Pilihan paketmu</span>
+                    <h2>Tujuan berbeda.<br><span class="underline">Tetap sama enaknya.</span></h2>
+                    <p>Setiap paket memperhatikan protein, karbohidrat, dan serat, dengan porsi yang disesuaikan untuk
+                        kebutuhanmu.</p>
+                </div>
+                <div class="format-switch">
+                    <div><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="18" height="14" rx="3" />
+                                <path d="M8 7V3h8v4M3 12h18m-11 0v3h4v-3" />
+                            </svg></span>
+                        <div>
+                            <h3>Full Meal</h3>
+                            <p>Makan siang + makan malam</p>
+                        </div>
+                    </div>
+                    <div><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4v7m3-7v7m3-7v7M7 11v10m12-17c-4 4-4 8 0 9V4Zm0 9v8" />
+                            </svg></span>
+                        <div>
+                            <h3>One Meal</h3>
+                            <p>Pilih makan siang atau malam</p>
+                        </div>
+                    </div><span>Harga & durasi?<a
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                            target="_blank" rel="noopener noreferrer">Konsultasikan via WhatsApp <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a></span>
+                </div>
+                <div class="plan-grid">
+                    <article class="plan-card">
+                        <div class="plan-top"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 20v-6m7 6V9m7 11V4" />
+                                </svg></span><span class="plan-index">01</span></div>
+                        <h3>Maintenance Plan</h3>
+                        <p class="plan-sub">Seimbang untuk keseharian.</p>
+                        <p>Porsi protein, serat, dan karbohidrat seimbang untuk menemani rutinitasmu.</p>
+                        <div class="nutrition"><strong>550–600</strong><span>kkal / meal</span></div><a
+                            class="text-link"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20Maintenance%20Plan.%20Boleh%20info%20harga%20dan%20durasinya%3F"
+                            target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-top"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
+                                    <path d="m4 21 11-11" />
+                                </svg></span><span class="plan-index">02</span></div>
+                        <h3>Weight Loss</h3>
+                        <p class="plan-sub">Porsi terarah, tetap nikmat.</p>
+                        <p>Porsi karbohidrat seperti nasi, kentang, roti, atau pasta dikurangi.</p>
+                        <div class="nutrition"><strong>
+                                <500< /strong><span>kkal / meal</span></div><a class="text-link"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20Weight%20Loss.%20Boleh%20info%20harga%20dan%20durasinya%3F"
+                            target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-top"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 3c1 6-5 6-5 11a5 5 0 0 0 10 0c0-2-1-4-3-6 0 3-2 4-2 4s2-5 0-9Z" />
+                                </svg></span><span class="plan-index">03</span></div>
+                        <h3>Weight Gain</h3>
+                        <p class="plan-sub">Tambahan energi untukmu.</p>
+                        <p>Porsi karbohidrat ditambah untuk mendukung kebutuhan asupanmu.</p>
+                        <div class="nutrition"><strong>600–700</strong><span>kkal / meal</span></div><a
+                            class="text-link"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20Weight%20Gain.%20Boleh%20info%20harga%20dan%20durasinya%3F"
+                            target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-top"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <circle cx="12" cy="12" r="5" />
+                                    <path d="m12 12 8-8" />
+                                </svg></span><span class="plan-index">04</span></div>
+                        <h3>High Protein</h3>
+                        <p class="plan-sub">Lebih banyak protein.</p>
+                        <p>Porsi ayam, daging, ikan, atau protein nabati lebih besar.</p>
+                        <div class="nutrition"><strong>600–700</strong><span>kkal / meal · hingga 60 g protein</span>
+                        </div><a class="text-link"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20High%20Protein.%20Boleh%20info%20harga%20dan%20durasinya%3F"
+                            target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-top"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 4v7m3-7v7m3-7v7M7 11v10m12-17c-4 4-4 8 0 9V4Zm0 9v8" />
+                                </svg></span><span class="plan-index">05</span></div>
+                        <h3>Ketogenic</h3>
+                        <p class="plan-sub">Karbohidrat lebih rendah.</p>
+                        <p>Porsi protein lebih besar, dengan sedikit atau tanpa sumber karbohidrat utama.</p>
+                        <div class="nutrition"><strong>500–600</strong><span>kkal / meal</span></div><a
+                            class="text-link"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20Ketogenic.%20Boleh%20info%20harga%20dan%20durasinya%3F"
+                            target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a>
+                    </article>
+                    <article class="plan-card">
+                        <div class="plan-top"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
+                                    <path d="m4 21 11-11" />
+                                </svg></span><span class="plan-index">06</span></div>
+                        <h3>Vegetarian</h3>
+                        <p class="plan-sub">Pilihan tanpa daging.</p>
+                        <p>Menu tanpa daging dengan pilihan protein nabati. Konsultasikan bahan dan kebutuhanmu.</p>
+                        <div class="nutrition"><strong>Tanpa daging</strong><span>Komposisi dikonfirmasi saat
+                                konsultasi</span></div><a class="text-link"
+                            href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20Vegetarian.%20Boleh%20info%20harga%20dan%20durasinya%3F"
+                            target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></a>
+                    </article>
+                </div>
+                <p class="fine-print">Kalori merupakan estimasi per meal. Kebutuhan setiap orang berbeda; diskusikan
+                    pilihanmu dengan tim Aformosa.</p>
+            </div>
+        </section>
+        <section class="section how-section" id="cara-pesan">
+            <div class="container how-layout">
+                <div class="how-intro"><span class="eyebrow">Sesimpel ini</span>
+                    <h2>Kamu jalani hari.<br><span class="underline">Kami siapkan makan.</span></h2>
+                    <p class="reveal-words">Makan sehat tidak harus menyita waktu. Mulai dari obrolan singkat, pilih
+                        yang sesuai, lalu nikmati menu yang kami siapkan untukmu.</p><a class="button primary"
+                        href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                        target="_blank" rel="noopener noreferrer">Mulai ngobrol<svg aria-hidden="true"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12h16m-6-6 6 6-6 6" />
+                        </svg></a>
+                </div>
+                <div class="steps">
+                    <article class="step"><span>01</span>
+                        <div>
+                            <h3>Ceritakan kebutuhanmu</h3>
+                            <p>Konsultasikan tujuan, lokasi, dan pantangan makan melalui WhatsApp.</p>
+                        </div>
+                    </article>
+                    <article class="step"><span>02</span>
+                        <div>
+                            <h3>Pilih paket & waktu makan</h3>
+                            <p>Tentukan meal plan, Full Meal atau One Meal, serta durasi bersama tim.</p>
+                        </div>
+                    </article>
+                    <article class="step"><span>03</span>
+                        <div>
+                            <h3>Kami masak dengan perhatian</h3>
+                            <p>Menu berganti, bahan disiapkan, dan makanan dimasak segar setiap hari.</p>
+                        </div>
+                    </article>
+                    <article class="step"><span>04</span>
+                        <div>
+                            <h3>Makan enak, tanpa repot</h3>
+                            <p>Pesanan diantar sesuai jadwal dan area yang telah dikonfirmasi.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section testimonials-section" id="testimoni">
+            <div class="container">
+                <div class="section-heading centered"><span class="eyebrow spark">Cerita di meja makan</span>
+                    <h2>Rutinitas kecil,<br><span class="underline">cerita yang berarti.</span></h2>
+                    <p>Ruang untuk pengalaman pelanggan Aformosa.</p>
+                </div>
+                <div class="testimonial-nav">
+                    <p>Video pelanggan segera hadir.</p>
+                    <div><button id="testimonial-prev" aria-label="Geser testimoni sebelumnya"><svg aria-hidden="true"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></button><button id="testimonial-next" aria-label="Geser testimoni berikutnya"><svg
+                                aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></button></div>
+                </div>
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-column">
+                        <article class="video-slot tall" data-video-index="0"><img src="assets/originals/meal-1.jpg"
+                                alt="Contoh menu ayam dan sayuran" loading="lazy">
+                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m9 5 11 7-11 7Z" />
+                                    </svg></span><strong>Setiap hari punya cerita.</strong><small>Video pelanggan segera
+                                    hadir</small></div>
+                        </article>
+                        <article class="story-card"><span>Rasa rumah</span>
+                            <h3>Menu yang akrab.<br>Cara makan yang lebih praktis.</h3>
+                            <p>Makanan favorit, dengan porsi yang diperhatikan.</p>
+                        </article>
+                    </div>
+                    <div class="testimonial-column offset">
+                        <article class="story-card"><span>Di sela kesibukan</span>
+                            <h3>Lebih banyak waktu<br>untuk menjalani hari.</h3>
+                            <p>Kami siapkan makan siang dan malam, kamu fokus pada rutinitasmu.</p>
+                        </article>
+                        <article class="video-slot tall" data-video-index="1"><img src="assets/originals/meal-6.jpg"
+                                alt="Contoh menu chicken katsu" loading="lazy">
+                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m9 5 11 7-11 7Z" />
+                                    </svg></span><strong>Teman makan di hari sibuk.</strong><small>Video pelanggan
+                                    segera hadir</small></div>
+                        </article>
+                    </div>
+                    <div class="testimonial-column">
+                        <article class="video-slot tall" data-video-index="2"><img src="assets/originals/meal-4.jpg"
+                                alt="Contoh menu fish and chips dan salad" loading="lazy">
+                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m9 5 11 7-11 7Z" />
+                                    </svg></span><strong>Enak yang ditunggu.</strong><small>Video pelanggan segera
+                                    hadir</small></div>
+                        </article>
+                        <article class="story-card"><span>Kebiasaan baik</span>
+                            <h3>Mulai dari satu<br>waktu makan.</h3>
+                            <p>Pilih yang sesuai dengan tujuan dan keseharianmu.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section calculator-section" id="kalkulator">
+            <div class="container">
+                <div class="section-heading centered"><span class="eyebrow spark">Kenali kebutuhanmu</span>
+                    <h2>Langkah awal, <span class="underline">mulai dari dirimu.</span></h2>
+                    <p>Hitung estimasi BMI, BMR, dan kebutuhan kalori harian.<br>Lalu diskusikan pilihan paket bersama
+                        tim kami.</p>
+                </div>
+                <div class="calculator-layout">
+                    <form id="calculator-form">
+                        <div class="form-heading">
+                            <h3>Yuk, kenalan dulu.</h3>
+                            <p>Isi data dan aktivitas yang paling mendekati rutinitasmu.</p>
+                        </div>
+                        <div class="form-grid"><label>Nama<input id="calc-name" name="name" type="text"
+                                    placeholder="Nama kamu" maxlength="60" autocomplete="given-name"
+                                    required></label><label>Umur (tahun)<input id="calc-age" name="age" type="number"
+                                    min="20" max="100" step="1" placeholder="Contoh: 30" required></label><label>Jenis
+                                kelamin<select id="calc-sex" required>
+                                    <option value="">Pilih</option>
+                                    <option value="female">Perempuan</option>
+                                    <option value="male">Laki-laki</option>
+                                </select></label><label>Tinggi badan (cm)<input id="calc-height" type="number" min="100"
+                                    max="250" step="0.1" placeholder="Contoh: 165" required></label><label>Berat badan
+                                (kg)<input id="calc-weight" type="number" min="25" max="350" step="0.1"
+                                    placeholder="Contoh: 60" required></label><label class="activity-field">Tingkat
+                                aktivitas<select id="calc-activity" aria-describedby="activity-hint" required>
+                                    <option value="">Pilih aktivitasmu</option>
+                                    <option value="sedentary">Sedentari — sedikit atau tanpa olahraga</option>
+                                    <option value="light">Olahraga 1–3 kali per minggu</option>
+                                    <option value="moderate">Olahraga 4–5 kali per minggu</option>
+                                    <option value="daily">Olahraga setiap hari / intens 3–4 kali per minggu</option>
+                                    <option value="intense">Olahraga intens 6–7 kali per minggu</option>
+                                    <option value="very-intense">Olahraga sangat intens tiap hari / pekerjaan fisik
+                                    </option>
+                                </select><small id="activity-hint">Pilih yang paling mendekati rutinitasmu selama
+                                    seminggu.</small></label></div><button class="button primary" type="submit">Hitung
+                            kebutuhan saya <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12h16m-6-6 6 6-6 6" />
+                            </svg></button>
+                        <div class="save-note">
+                            <p>Nama dan umur disimpan di browser ini agar tidak perlu diisi ulang.</p><button
+                                type="button" id="clear-saved-profile">Hapus data tersimpan</button>
+                        </div>
+                    </form>
+                    <div class="calculator-results" aria-live="polite">
+                        <div id="calculator-empty"><span class="icon-disc"><svg aria-hidden="true" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 20v-6m7 6V9m7 11V4" />
+                                </svg></span>
+                            <h3>Setiap tubuh<br>punya kebutuhan.</h3>
+                            <p>Hasil perhitunganmu akan muncul di sini. Gunakan sebagai gambaran awal untuk konsultasi.
+                            </p>
+                            <div class="result-explain"><span><strong>BMI</strong>Indeks massa
+                                    tubuh</span><span><strong>BMR</strong>Energi saat
+                                    istirahat</span><span><strong>Kalori harian</strong>Energi sesuai aktivitas</span>
+                            </div>
+                        </div>
+                        <div id="calculator-output" hidden><span class="eyebrow">Gambaran kebutuhanmu</span>
+                            <div class="result-main"><strong id="tdee-value">0</strong><span>kkal / hari</span>
+                                <p>Estimasi untuk mempertahankan berat badan</p>
+                            </div>
+                            <div class="result-pair">
+                                <div><span>BMI</span><strong id="bmi-value">0</strong><small id="bmi-category"></small>
+                                </div>
+                                <div><span>BMR</span><strong id="bmr-value">0</strong><small>kkal / hari saat
+                                        istirahat</small></div>
+                            </div>
+                            <p id="activity-result-label"></p><a id="calculator-whatsapp" class="button primary"
+                                href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                                target="_blank" rel="noopener noreferrer">Konsultasikan hasil <svg aria-hidden="true"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 12h16m-6-6 6 6-6 6" />
+                                </svg></a>
+                            <p class="fine-print">Tombol membuka WhatsApp dengan ringkasan data dan hasilmu. Pesan
+                                dikirim setelah kamu menekan Kirim di WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="calculator-disclaimer">Untuk orang dewasa usia 20–100 tahun. Hasil merupakan estimasi, bukan
+                    diagnosis atau rekomendasi medis individual. BMR menggunakan rumus Mifflin–St Jeor; BMI tidak
+                    menilai komposisi tubuh. <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank"
+                        rel="noopener noreferrer">Rumus BMR</a> · <a
+                        href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html" target="_blank"
+                        rel="noopener noreferrer">Kategori BMI</a></p>
+            </div>
+        </section>
+        <section class="section faq-section" id="faq">
+            <div class="container faq-layout">
+                <div class="section-heading"><span class="eyebrow">Biar lebih jelas</span>
+                    <h2>Masih<br><span class="underline">penasaran?</span></h2>
+                    <p>Kami bantu jawab pertanyaanmu sebelum mulai berlangganan.</p><a class="text-link"
+                        href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                        target="_blank" rel="noopener noreferrer">Tanya langsung ke tim <svg aria-hidden="true"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12h16m-6-6 6 6-6 6" />
+                        </svg></a>
+                </div>
+                <div class="faq-list">
+                    <details>
+                        <summary>Apa bedanya Full Meal dan One Meal?<span>+</span></summary>
+                        <p>Full Meal mencakup makan siang dan makan malam. One Meal menyediakan satu waktu makan: siang
+                            atau malam. Pilihan durasi dan harga bisa dikonsultasikan melalui WhatsApp.</p>
+                    </details>
+                    <details>
+                        <summary>Bagaimana memilih paket yang sesuai?<span>+</span></summary>
+                        <p>Mulai dari tujuan dan rutinitasmu. Maintenance untuk porsi seimbang, Weight Loss dengan
+                            karbohidrat lebih sedikit, Weight Gain dengan tambahan karbohidrat, High Protein dengan
+                            protein lebih besar, dan Ketogenic dengan karbohidrat rendah. Tim kami membantu menjelaskan
+                            pilihan paket.</p>
+                    </details>
+                    <details>
+                        <summary>Apakah menunya sama setiap hari?<span>+</span></summary>
+                        <p>Menu berganti agar makan sehat tetap bervariasi. Menu yang tampil saat ini adalah contoh;
+                            konfirmasikan menu dan ketersediaan terbaru kepada tim sebelum memesan.</p>
+                    </details>
+                    <details>
+                        <summary>Bisa menyesuaikan alergi atau pantangan?<span>+</span></summary>
+                        <p>Sampaikan alergi, pantangan, dan kebutuhan khusus saat konsultasi. Tim akan mengonfirmasi
+                            apakah penyesuaian bisa dilakukan sebelum pesanan dibuat.</p>
+                    </details>
+                    <details>
+                        <summary>Area mana saja yang dilayani?<span>+</span></summary>
+                        <p>Aformosa melayani Surabaya, Bali, Jakarta, dan Tangerang. Cakupan alamat, jadwal, serta biaya
+                            pengiriman perlu dikonfirmasi melalui WhatsApp.</p>
+                    </details>
+                    <details>
+                        <summary>Berapa harga paketnya?<span>+</span></summary>
+                        <p>Harga bergantung pada pilihan paket, jumlah waktu makan, durasi, dan lokasi pengiriman. Klik
+                            tombol konsultasi WhatsApp untuk mendapatkan informasi yang sesuai dengan kebutuhanmu.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section" id="konsultasi">
+            <div class="container cta-layout">
+                <div><span class="eyebrow">Satu obrolan untuk mulai</span>
+                    <h2>Makan sehat,<br><span>dibuat lebih mudah.</span></h2>
+                    <p>Ceritakan kebutuhanmu. Kami bantu pilih paket,<br>menu, dan harga yang sesuai.</p>
+                </div>
+                <form id="consult-form"><label>Kota pengiriman<select id="city" required>
+                            <option value="">Pilih kotamu</option>
+                            <option>Surabaya</option>
+                            <option>Bali</option>
+                            <option>Jakarta</option>
+                            <option>Tangerang</option>
+                        </select></label><label>Paket yang kamu minati<select id="goal">
+                            <option>Belum tahu, ingin konsultasi</option>
+                            <option>Maintenance Plan</option>
+                            <option>Weight Loss</option>
+                            <option>Weight Gain</option>
+                            <option>High Protein</option>
+                            <option>Ketogenic</option>
+                            <option>Vegetarian</option>
+                        </select></label><button type="submit" class="button">Konsultasi via WhatsApp <svg
+                            aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12h16m-6-6 6 6-6 6" />
+                        </svg></button><small>Tim kami akan membantu menjelaskan harga dan durasi paket.</small></form>
+                </di`v>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-main"><a class="brand" href="#beranda"><img src="assets/logo.png"
+                    alt="Aformosa Healthy Meal" width="116" height="116"></a>
+            <div><strong>Your Personal Home Cook</strong>
+                <p>Makanan sehat dengan kehangatan masakan rumah.</p>
+            </div>
+            <div class="footer-links"><a href="#menu">Menu mingguan</a><a href="#paket">Pilihan paket</a><a
+                    href="#testimoni">Testimoni</a><a href="#kalkulator">Kalkulator</a></div><a
+                href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                target="_blank" rel="noopener noreferrer">+62 812 845 4489</a>
+        </div>
+        <div class="container footer-bottom"><span>© <span id="year"></span> Aformosa Healthy Meal</span><span>Surabaya
+                · Bali · Jakarta · Tangerang</span></div>
+    </footer><a class="floating-wa"
+        href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+        aria-label="Konsultasi Aformosa lewat WhatsApp" target="_blank" rel="noopener noreferrer"><svg
+            aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg><span>Chat kami</span></a>
+</body>
+
+</html>
