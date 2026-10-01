@@ -39,8 +39,13 @@
     <main id="main">
         <section class="hero" id="beranda">
             <div class="container hero-grid">
-                <div class="hero-copy"><span class="eyebrow spark">Your Personal Home Cook</span>
+                <div class="hero-copy">
+                    <!-- CSS-Based Element: Eyebrow Pill -->
+                    <span class="">Your Personal Home Cook</span>
+
+                    <!-- CSS-Based Element: Yellow Headline Underline -->
                     <h1>Makan sehat,<br><span class="underline">rasa rumah.</span></h1>
+
                     <p class="hero-description">Menu bergizi seimbang, dimasak segar setiap hari. Teman makan untuk
                         rutinitasmu, dengan rasa yang selalu kamu tunggu.</p>
                     <div class="hero-actions"><a class="button primary"
@@ -54,40 +59,55 @@
                                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 12h16m-6-6 6 6-6 6" />
                             </svg></a></div>
-                    <div class="hero-points"><span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
-                                <path d="m4 21 11-11" />
-                            </svg>Segar setiap hari</span><span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 20v-6m7 6V9m7 11V4" />
-                            </svg>Porsi sesuai tujuan</span><span><svg aria-hidden="true" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 5c-3-3-7-1-8 2-1-3-5-5-8-2-4 4 2 10 8 15 6-5 12-11 8-15Z" />
-                            </svg>Rasa rumahan</span></div>
+                    <div class="hero-benefits">
+                        <article class="hero-benefit">
+                            <img class="hero-benefit__icon" src="assets/svg/benefit-icon-fresh.svg" alt=""
+                                aria-hidden="true">
+                            <h3 class="hero-benefit__title">Fresh setiap hari</h3>
+                            <p class="hero-benefit__desc">Dimasak dengan bahan berkualitas</p>
+                        </article>
+
+                        <article class="hero-benefit">
+                            <img class="hero-benefit__icon" src="assets/svg/benefit-icon-portion.svg" alt=""
+                                aria-hidden="true">
+                            <h3 class="hero-benefit__title">Porsi sesuai tujuan</h3>
+                            <p class="hero-benefit__desc">Disesuaikan dengan kebutuhanmu</p>
+                        </article>
+
+                        <article class="hero-benefit">
+                            <img class="hero-benefit__icon" src="assets/svg/benefit-icon-home.svg" alt=""
+                                aria-hidden="true">
+                            <h3 class="hero-benefit__title">Nutrisi seimbang</h3>
+                            <p class="hero-benefit__desc">Protein, karbo, serat dalam 1 porsi.</p>
+                        </article>
+                    </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="food-blob"></div><img class="hero-food" src="assets/hero-studio.jpg"
-                        alt="Ayam saus dengan kacang, nasi merah, sayuran, dan puding dalam kemasan Aformosa"
-                        width="1254" height="1254" fetchpriority="high"><span class="food-note top"><svg
-                            aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4v7m3-7v7m3-7v7M7 11v10m12-17c-4 4-4 8 0 9V4Zm0 9v8" />
-                        </svg><span>Lengkap & seimbang<small>Protein, karbohidrat, dan serat</small></span></span><span
-                        class="food-note bottom"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 4C9 2 3 7 5 15c4 7 15 4 15-11Z" />
-                            <path d="m4 21 11-11" />
-                        </svg>Dimasak segar setiap hari</span><svg class="doodle" viewBox="0 0 100 100"
+
+                    <img class="hero-food" src="assets/hero-studio.jpg" alt="Menu sehat Aformosa">
+
+                    <img class="hero-doodle hero-doodle--heart" src="assets/svg/hero-doodle-heart.svg" alt=""
                         aria-hidden="true">
-                        <path d="M45 80C-5 40 10 5 40 35c20-50 60-10 5 45Z" fill="none" stroke="white"
-                            stroke-width="5" />
-                    </svg>
+
+                    <img class="hero-doodle hero-doodle--curves" src="assets/svg/hero-accent-curves.svg" alt=""
+                        aria-hidden="true">
+
+                    <img class="hero-badge hero-badge--calorie" src="assets/svg/hero-badge-calorie.svg"
+                        alt="500–650 KCAL per meal">
+
+                    <img class="hero-badge hero-badge--fresh" src="assets/svg/hero-badge-fresh.svg" alt="Fresh Daily">
+
                 </div>
             </div>
-            <div class="city-strip"><span>Teman makan sehat
-                    di</span><strong>Surabaya</strong><i></i><strong>Bali</strong><i></i><strong>Jakarta</strong><i></i><strong>Tangerang</strong>
+        </section>
+        <section class="city-strip-section" aria-label="Area layanan Aformosa">
+            <div class="container city-strip">
+                <div class="city-strip__cities">
+                    <strong>Surabaya</strong>
+                    <strong>Bali</strong>
+                    <strong>Jakarta</strong>
+                    <strong>Tangerang</strong>
+                </div>
             </div>
         </section>
         <section class="section benefits-section" id="tentang">
@@ -243,7 +263,7 @@
                         <p class="plan-sub">Porsi terarah, tetap nikmat.</p>
                         <p>Porsi karbohidrat seperti nasi, kentang, roti, atau pasta dikurangi.</p>
                         <div class="nutrition"><strong>
-                                <500< /strong><span>kkal / meal</span></div><a class="text-link"
+                                &lt;500</strong><span>kkal / meal</span></div><a class="text-link"
                             href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20Weight%20Loss.%20Boleh%20info%20harga%20dan%20durasinya%3F"
                             target="_blank" rel="noopener noreferrer">Konsultasikan paket <svg aria-hidden="true"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -434,6 +454,21 @@
                         <article class="story-card"><span>Kebiasaan baik</span>
                             <h3>Mulai dari satu<br>waktu makan.</h3>
                             <p>Pilih yang sesuai dengan tujuan dan keseharianmu.</p>
+                        </article>
+                    </div>
+                    <div class="testimonial-column offset">
+                        <article class="story-card"><span>Teman rutinitasmu</span>
+                            <h3>Makan seimbang,<br>tanpa ribet menyiapkan.</h3>
+                            <p>Menu berganti untuk menemani keseharianmu.</p>
+                        </article>
+                        <article class="video-slot tall" data-video-index="3"><img src="assets/originals/meal-2.jpg"
+                                alt="Contoh menu pasta dan sayuran Aformosa" loading="lazy">
+                            <div class="video-placeholder"><span class="play-disc"><svg aria-hidden="true"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m9 5 11 7-11 7Z" />
+                                    </svg></span><strong>Praktis di setiap hari.</strong><small>Video pelanggan segera
+                                    hadir</small></div>
                         </article>
                     </div>
                 </div>

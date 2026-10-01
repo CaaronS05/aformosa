@@ -23,7 +23,7 @@ body {
     }
 
     .is-stuck .nav-inner {
-        height: 68px
+        height: 84px
     }
 
     .brand img {
@@ -33,8 +33,8 @@ body {
     }
 
     .is-stuck .brand img {
-        width: 54px;
-        height: 54px
+        width: 68px;
+        height: 68px
     }
 
     .nav-inner nav a {
@@ -72,13 +72,9 @@ body {
         font-size: 15px
     }
 
-    .hero-points {
-        font-size: 13.5px
-    }
+    /* .hero-points consolidated in styles.css */
 
-    .city-strip {
-        font-size: 13.5px
-    }
+    
 
     .little-tags span {
         font-size: 13px
@@ -182,28 +178,7 @@ body {
         background: #fff
     }
 
-    /* ---- Hero ---- */
-    .hero-grid {
-        min-height: clamp(560px, 80vh, 720px)
-    }
-
-    .hero-description {
-        font-size: clamp(16px, .5vw + 15px, 19px)
-    }
-
-    .food-note.top {
-        animation: rfFloat 5s ease-in-out infinite
-    }
-
-    .food-note.bottom {
-        animation: rfFloat 6s ease-in-out -2s infinite
-    }
-
-    @keyframes rfFloat {
-        50% {
-            translate: 0 -9px
-        }
-    }
+    /* ---- Hero: Consolidated in styles.css (Single Source of Truth) ---- */
 
     /* ---- Menu cards: stacked meals, readable sizes ---- */
     .meal-details {
@@ -337,7 +312,7 @@ body {
         }
 
         .is-stuck .nav-inner {
-            height: 64px
+            height: 72px
         }
 
         .nav-inner nav {
@@ -369,9 +344,6 @@ body {
             padding: 12px 18px
         }
 
-        .hero-description {
-            font-size: 16.5px
-        }
     }
 }
 
@@ -382,56 +354,10 @@ body {
     }
 }
 
-@media(max-width:820px) {
-    body {
-        .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 24px
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 9.5vw, 52px);
-            max-width: none
-        }
-
-        .hero-visual {
-            width: 100%;
-            max-width: 500px;
-            margin: 8px auto 0
-        }
-
-        .hero-actions .button {
-            width: 100%
-        }
-    }
-}
+/* Note: Former @media(max-width:820px) Hero overrides are consolidated into styles.css */
 
 @media(max-width:640px) {
     body {
-        .hero-points {
-            flex-direction: column;
-            gap: 12px
-        }
-
-        .hero-points span {
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            flex: none
-        }
-
-        .hero-points svg {
-            width: 22px;
-            height: 22px
-        }
-
-        .food-note {
-            font-size: 12.5px
-        }
-
-        .food-note small {
-            font-size: 11px
-        }
 
         .benefit h3 {
             font-size: 16px
@@ -461,9 +387,8 @@ body {
             font-size: 14px
         }
 
-        /* swipeable carousels for menu + plans (brand mobile spec) */
-        .weekly-grid,
-        .plan-grid {
+        /* Swipeable weekly menu; meal plans remain a vertical card list. */
+        .weekly-grid {
             grid-template-columns: none;
             grid-auto-flow: column;
             grid-auto-columns: 86%;
@@ -477,13 +402,11 @@ body {
             -webkit-overflow-scrolling: touch
         }
 
-        .weekly-grid::-webkit-scrollbar,
-        .plan-grid::-webkit-scrollbar {
+        .weekly-grid::-webkit-scrollbar {
             display: none
         }
 
-        .weekly-grid>*,
-        .plan-grid>* {
+        .weekly-grid>* {
             scroll-snap-align: start
         }
 
@@ -511,4 +434,136 @@ body .floating-wa svg {
     height: 26px;
     fill: currentColor;
     stroke: none
+}
+
+/* Reveal navigation on upward scroll without shifting page content. */
+body .site-header {
+    transform: translateY(0);
+    transition: transform .25s ease, box-shadow .4s var(--ease);
+}
+
+body .site-header.is-scroll-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
+}
+
+body .site-header:focus-within {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body .site-header {
+        transition: none;
+    }
+}
+
+
+/* Center the mobile Hero and keep service cities on one line. */
+@media (max-width: 768px) {
+    body .hero .container.hero-grid {
+        align-items: center;
+        text-align: center;
+    }
+
+    body .hero .hero-copy > span,
+    body .hero .eyebrow {
+        order: 1;
+        align-self: center;
+        max-width: 100%;
+    }
+
+    body .hero h1,
+    body .hero-description {
+        width: 100%;
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    body .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 440px;
+        margin-inline: auto;
+    }
+
+    body .hero-visual {
+        align-self: center;
+        margin-inline: auto;
+    }
+
+    body .hero-benefits {
+        align-items: center;
+    }
+
+    body .hero-benefit {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    body .hero-benefit__desc {
+        margin-inline: auto;
+    }
+
+    body .container.city-strip {
+        width: 100%;
+        padding: 22px 12px;
+    }
+
+    body .city-strip__cities {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: clamp(8px, 2.5vw, 18px);
+    }
+
+    body .city-strip__cities strong {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        font-size: clamp(13px, 3.7vw, 18px);
+    }
+}
+
+
+/* Mobile package cards follow the page's vertical scroll. */
+@media (max-width: 950px) {
+    body .plan-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        grid-auto-rows: auto;
+        align-items: start;
+        gap: 16px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    body .plan-grid > .plan-card {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 0;
+        align-self: start;
+        scroll-snap-align: none;
+    }
+
+    body .plan-card > p:not(.plan-sub) {
+        flex: 0 0 auto;
+    }
+}
+
+
+/* Continuous testimonial motion has no snap points. */
+body .testimonial-track.is-looping {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+body .testimonial-track [data-loop-copy] {
+    scroll-snap-align: none;
 }
