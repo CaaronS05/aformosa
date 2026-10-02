@@ -461,51 +461,6 @@ body .site-header:focus-within {
 
 /* Center the mobile Hero and keep service cities on one line. */
 @media (max-width: 768px) {
-    body .hero .container.hero-grid {
-        align-items: center;
-        text-align: center;
-    }
-
-    body .hero .hero-copy > span,
-    body .hero .eyebrow {
-        order: 1;
-        align-self: center;
-        max-width: 100%;
-    }
-
-    body .hero h1,
-    body .hero-description {
-        width: 100%;
-        text-align: center;
-        margin-inline: auto;
-    }
-
-    body .hero-actions {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        max-width: 440px;
-        margin-inline: auto;
-    }
-
-    body .hero-visual {
-        align-self: center;
-        margin-inline: auto;
-    }
-
-    body .hero-benefits {
-        align-items: center;
-    }
-
-    body .hero-benefit {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-    }
-
-    body .hero-benefit__desc {
-        margin-inline: auto;
-    }
 
     body .container.city-strip {
         width: 100%;
@@ -571,17 +526,7 @@ body .testimonial-track [data-loop-copy] {
 
 /* Keep mobile Hero benefit text above the bottom ingredient decoration. */
 @media (max-width: 768px) {
-    body .hero .container.hero-grid {
-        padding-bottom: 88px;
-    }
 
-    body .hero-benefits {
-        margin-top: 16px;
-        padding-top: 18px;
-        gap: 18px;
-        position: relative;
-        z-index: 1;
-    }
 }
 
 body .calculator-results {

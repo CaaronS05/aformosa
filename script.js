@@ -61,10 +61,14 @@ testimonialVideos.forEach((item, index) => {
   video.playsInline = true;
   video.controls = false;
   video.preload = 'metadata';
+  video.style.width = '100%';
+  video.style.height = '100%';
+  video.style.objectFit = 'cover';
   video.setAttribute('autoplay', '');
   video.setAttribute('muted', '');
   video.setAttribute('loop', '');
   video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
   video.setAttribute('preload', 'metadata');
   video.setAttribute('aria-label', item.caption || 'Video pengalaman pelanggan Aformosa');
 
@@ -77,6 +81,7 @@ testimonialVideos.forEach((item, index) => {
     video.play().catch(() => {});
   };
   video.addEventListener('canplay', startAutoplay, { once: true });
+  video.addEventListener('loadedmetadata', startAutoplay, { once: true });
   startAutoplay();
 
   slot.replaceChildren(video);
@@ -215,7 +220,10 @@ function updateGalleryButtons() {
 track.addEventListener('scroll', () => { testimonialPosition = track.scrollLeft; updateGalleryButtons(); }, { passive: true });
 track.addEventListener('mouseenter', () => { testimonialHovered = true; });
 track.addEventListener('mouseleave', () => { testimonialHovered = false; });
-track.addEventListener('pointerdown', () => { testimonialTouched = true; });
+track.addEventListener('pointerdown', e => {
+  if (e.target.closest('.video-sound-toggle')) return;
+  testimonialTouched = true;
+});
 window.addEventListener('pointerup', () => { testimonialTouched = false; testimonialPauseUntil = performance.now() + 1500; });
 window.addEventListener('pointercancel', () => { testimonialTouched = false; });
 track.addEventListener('wheel', () => { testimonialPauseUntil = performance.now() + 1500; }, { passive: true });
@@ -233,6 +241,13 @@ function animateTestimonials(time) {
 }
 setupTestimonialLoop();
 testimonialFrame = requestAnimationFrame(animateTestimonials);
+const triggerAutoplayOnGesture = () => {
+  track.querySelectorAll('video').forEach(v => {
+    if (v.paused && v.muted) v.play().catch(() => {});
+  });
+};
+window.addEventListener('touchstart', triggerAutoplayOnGesture, { once: true, passive: true });
+window.addEventListener('click', triggerAutoplayOnGesture, { once: true, passive: true });
 const whatsappNumber = '6281284584489';
 const calculatorForm = document.querySelector('#calculator-form');
 const calculatorName = document.querySelector('#calc-name');
