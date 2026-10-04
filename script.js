@@ -248,6 +248,55 @@ const triggerAutoplayOnGesture = () => {
 };
 window.addEventListener('touchstart', triggerAutoplayOnGesture, { once: true, passive: true });
 window.addEventListener('click', triggerAutoplayOnGesture, { once: true, passive: true });
+// Every WhatsApp CTA shares one regional contact picker.
+const contactRegionNumbers = {
+  surabaya: '6281284584489',
+  jakarta: '6281213957045',
+  bali: '6287724837861'
+};
+const contactRegionModal = document.querySelector('#contact-region-modal');
+let contactRegionReturnFocus = null;
+
+function openContactRegionModal(message = '') {
+  if (!contactRegionModal) return;
+  if (!contactRegionModal.open) contactRegionReturnFocus = document.activeElement;
+  contactRegionModal.querySelectorAll('[data-contact-region]').forEach(link => {
+    const number = contactRegionNumbers[link.dataset.contactRegion];
+    const url = new URL(`https://wa.me/${number}`);
+    if (message) url.searchParams.set('text', message);
+    link.href = url.href;
+  });
+  if (!contactRegionModal.open) contactRegionModal.showModal();
+  document.body.classList.add('contact-region-modal-open');
+}
+
+if (contactRegionModal) {
+  contactRegionModal.querySelector('[data-close-contact-modal]').addEventListener('click', () => contactRegionModal.close());
+  contactRegionModal.querySelectorAll('[data-contact-region]').forEach(link => {
+    link.addEventListener('click', () => contactRegionModal.close());
+  });
+  contactRegionModal.addEventListener('click', event => {
+    if (event.target !== contactRegionModal) return;
+    const bounds = contactRegionModal.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+      contactRegionModal.close();
+    }
+  });
+  contactRegionModal.addEventListener('close', () => {
+    document.body.classList.remove('contact-region-modal-open');
+    if (contactRegionReturnFocus?.isConnected) contactRegionReturnFocus.focus({ preventScroll: true });
+    contactRegionReturnFocus = null;
+  });
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || contactRegionModal.contains(link)) return;
+    const url = new URL(link.href, window.location.href);
+    if (!['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname)) return;
+    event.preventDefault();
+    openContactRegionModal(url.searchParams.get('text') || '');
+  });
+}
+
 const whatsappNumber = '6281284584489';
 const calculatorForm = document.querySelector('#calculator-form');
 const calculatorName = document.querySelector('#calc-name');
@@ -307,12 +356,161 @@ calculatorForm.addEventListener('submit', event => {
 });
 calculatorName.addEventListener('input', () => calculatorName.setCustomValidity(''));
 
-document.querySelector('#consult-form').addEventListener('submit', e => {
-  e.preventDefault(); if (!e.target.reportValidity()) return;
-  const city = document.querySelector('#city').value; const goal = document.querySelector('#goal').value;
-  const message = `Halo Aformosa, saya berada di ${city} dan tertarik dengan ${goal}. Boleh dibantu info menu, pilihan Full Meal / One Meal, harga, durasi, dan cakupan pengirimannya?`;
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
-});
+const deliveryForm = document.querySelector('#delivery-form');
+if (deliveryForm) {
+  deliveryForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!deliveryForm.reportValidity()) return;
+    const cityEl = document.querySelector('#delivery-city');
+    const needEl = document.querySelector('#delivery-goal');
+    const city = cityEl ? cityEl.value : '';
+    const need = needEl ? needEl.value : '';
+    if (!city) return;
+    const formattedCity = city.charAt(0).toUpperCase() + city.slice(1);
+    const message = `Halo Aformosa, saya ingin konsultasi catering sehat.\n\nKota pengiriman: ${formattedCity}\nKebutuhan / paket: ${need}\n\nBoleh dibantu info menu, harga, durasi paket, dan jadwal pengirimannya?`;
+    const region = city === 'tangerang' ? 'jakarta' : city;
+    const number = contactRegionNumbers[region];
+    if (!number) return;
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  });
+}
+
+// Reusable Custom Select Component
+function initCustomSelects() {
+  const wrappers = () => document.querySelectorAll('[data-custom-select]');
+  const closeAll = except => wrappers().forEach(wrapper => {
+    if (wrapper !== except) wrapper._closeCustomSelect?.();
+  });
+
+  wrappers().forEach(wrapper => {
+    if (wrapper.dataset.initialized === 'true') return;
+    const nativeSelect = wrapper.querySelector('select');
+    const trigger = wrapper.querySelector('.custom-select__trigger');
+    const valueEl = wrapper.querySelector('.custom-select__value');
+    const menu = wrapper.querySelector('.custom-select__menu');
+    const options = Array.from(menu?.querySelectorAll('.custom-select__option') || []);
+    if (!nativeSelect || !trigger || !valueEl || !menu || !options.length) return;
+    wrapper.dataset.initialized = 'true';
+    nativeSelect.classList.add('native-select-source');
+    trigger.id ||= `${nativeSelect.id}-trigger`;
+    menu.id ||= `${nativeSelect.id}-listbox`;
+    trigger.setAttribute('aria-controls', menu.id);
+    menu.setAttribute('aria-labelledby', trigger.id);
+    options.forEach(option => { option.tabIndex = -1; });
+    let highlightedIndex = -1;
+
+    function highlight(index) {
+      highlightedIndex = index;
+      options.forEach((option, i) => option.classList.toggle('is-highlighted', i === index));
+      if (index >= 0) {
+        options[index].id ||= `${menu.id}-option-${index}`;
+        trigger.setAttribute('aria-activedescendant', options[index].id);
+        options[index].scrollIntoView({ block: 'nearest' });
+      } else {
+        trigger.removeAttribute('aria-activedescendant');
+      }
+    }
+
+    function syncFromNative() {
+      const selected = options.find(option => option.dataset.value === nativeSelect.value);
+      if (selected) {
+        valueEl.textContent = selected.textContent.trim();
+        valueEl.classList.toggle('is-placeholder', nativeSelect.value === '');
+      }
+      options.forEach(option => {
+        const isSelected = option === selected;
+        option.classList.toggle('is-selected', isSelected);
+        option.setAttribute('aria-selected', String(isSelected));
+      });
+      if (nativeSelect.validity.valid) trigger.classList.remove('has-error');
+    }
+
+    function close() {
+      wrapper.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      highlight(-1);
+    }
+
+    function open() {
+      closeAll(wrapper);
+      wrapper.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      const index = options.findIndex(option => option.dataset.value === nativeSelect.value);
+      highlight(index < 0 ? 0 : index);
+    }
+
+    function choose(option) {
+      nativeSelect.value = option.dataset.value ?? '';
+      syncFromNative();
+      nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      close();
+      trigger.focus();
+    }
+
+    wrapper._closeCustomSelect = close;
+    trigger.addEventListener('click', event => {
+      event.preventDefault();
+      wrapper.classList.contains('is-open') ? close() : open();
+    });
+    options.forEach((option, index) => {
+      option.addEventListener('click', event => {
+        event.preventDefault();
+        choose(option);
+      });
+      option.addEventListener('mouseenter', () => highlight(index));
+    });
+    wrapper.addEventListener('keydown', event => {
+      const isOpen = wrapper.classList.contains('is-open');
+      if (event.key === 'Escape') {
+        if (isOpen) {
+          event.preventDefault();
+          close();
+          trigger.focus();
+        }
+      } else if (event.key === 'Tab') {
+        close();
+      } else if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
+        event.preventDefault();
+        if (!isOpen) open();
+        else if (event.key === 'ArrowDown') highlight((highlightedIndex + 1) % options.length);
+        else if (event.key === 'ArrowUp') highlight((highlightedIndex - 1 + options.length) % options.length);
+        if (event.key === 'Home') highlight(0);
+        if (event.key === 'End') highlight(options.length - 1);
+      } else if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        if (!isOpen) open();
+        else if (highlightedIndex >= 0) choose(options[highlightedIndex]);
+      }
+    });
+    nativeSelect.addEventListener('change', syncFromNative);
+    nativeSelect.addEventListener('focus', () => trigger.focus());
+    nativeSelect.addEventListener('invalid', event => {
+      event.preventDefault();
+      trigger.classList.add('has-error');
+      trigger.focus();
+    });
+    nativeSelect.form?.addEventListener('reset', () => {
+      queueMicrotask(() => {
+        syncFromNative();
+        trigger.classList.remove('has-error');
+        close();
+      });
+    });
+    syncFromNative();
+    close();
+  });
+
+  if (initCustomSelects.listenersAttached) return;
+  initCustomSelects.listenersAttached = true;
+  document.addEventListener('click', event => {
+    if (!event.target.closest('[data-custom-select]')) closeAll();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeAll();
+  });
+}
+
+initCustomSelects();
 document.querySelector('#year').textContent = new Date().getFullYear();
 const visibleSections = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { nav.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.hash === '#' + entry.target.id)); } }); }, { rootMargin: '-18% 0px -64% 0px' });
 nav.querySelectorAll('a').forEach(a => { const section = document.querySelector(a.hash); if (section) visibleSections.observe(section); });
