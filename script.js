@@ -696,8 +696,8 @@ function initCustomSelects() {
     if (!nativeSelect || !trigger || !valueEl || !menu || !options.length) return;
     wrapper.dataset.initialized = 'true';
     nativeSelect.classList.add('native-select-source');
-    trigger.id ||= `${nativeSelect.id}-trigger`;
-    menu.id ||= `${nativeSelect.id}-listbox`;
+    if (!trigger.id) trigger.id = `${nativeSelect.id}-trigger`;
+    if (!menu.id) menu.id = `${nativeSelect.id}-listbox`;
     trigger.setAttribute('aria-controls', menu.id);
     menu.setAttribute('aria-labelledby', trigger.id);
     options.forEach(option => { option.tabIndex = -1; });
@@ -707,7 +707,7 @@ function initCustomSelects() {
       highlightedIndex = index;
       options.forEach((option, i) => option.classList.toggle('is-highlighted', i === index));
       if (index >= 0) {
-        options[index].id ||= `${menu.id}-option-${index}`;
+        if (!options[index].id) options[index].id = `${menu.id}-option-${index}`;
         trigger.setAttribute('aria-activedescendant', options[index].id);
         options[index].scrollIntoView({ block: 'nearest' });
       } else {
@@ -789,11 +789,12 @@ function initCustomSelects() {
       }
     });
     nativeSelect.addEventListener('change', syncFromNative);
-    nativeSelect.addEventListener('focus', () => trigger.focus());
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!isTouch) nativeSelect.addEventListener('focus', () => trigger.focus());
     nativeSelect.addEventListener('invalid', event => {
       event.preventDefault();
       trigger.classList.add('has-error');
-      trigger.focus();
+      if (!isTouch) trigger.focus();
     });
     nativeSelect.form?.addEventListener('reset', () => {
       queueMicrotask(() => {
