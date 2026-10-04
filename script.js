@@ -185,8 +185,10 @@ if (weeklyMenu) {
   function scrollToCard(index) {
     if (!cards[index]) return;
     const targetCard = cards[index];
-    const offset = targetCard.offsetLeft - weeklyMenu.offsetLeft;
-    weeklyMenu.scrollTo({ left: offset, behavior: 'smooth' });
+    const isMobile = window.innerWidth <= 768;
+    const centerOffset = isMobile ? (weeklyMenu.clientWidth - targetCard.offsetWidth) / 2 : 0;
+    const offset = targetCard.offsetLeft - weeklyMenu.offsetLeft - centerOffset;
+    weeklyMenu.scrollTo({ left: Math.max(0, offset), behavior: 'smooth' });
     updateActiveState(index);
   }
 
@@ -215,9 +217,11 @@ if (weeklyMenu) {
   if (menuPrevBtn) {
     menuPrevBtn.addEventListener('click', () => {
       const currentScroll = weeklyMenu.scrollLeft;
+      const isMobile = window.innerWidth <= 768;
       let targetIndex = 0;
       for (let i = cards.length - 1; i >= 0; i--) {
-        const cardOffset = cards[i].offsetLeft - weeklyMenu.offsetLeft;
+        const centerOffset = isMobile ? (weeklyMenu.clientWidth - cards[i].offsetWidth) / 2 : 0;
+        const cardOffset = cards[i].offsetLeft - weeklyMenu.offsetLeft - centerOffset;
         if (cardOffset < currentScroll - 15) {
           targetIndex = i;
           break;
@@ -230,9 +234,11 @@ if (weeklyMenu) {
   if (menuNextBtn) {
     menuNextBtn.addEventListener('click', () => {
       const currentScroll = weeklyMenu.scrollLeft;
+      const isMobile = window.innerWidth <= 768;
       let targetIndex = cards.length - 1;
       for (let i = 0; i < cards.length; i++) {
-        const cardOffset = cards[i].offsetLeft - weeklyMenu.offsetLeft;
+        const centerOffset = isMobile ? (weeklyMenu.clientWidth - cards[i].offsetWidth) / 2 : 0;
+        const cardOffset = cards[i].offsetLeft - weeklyMenu.offsetLeft - centerOffset;
         if (cardOffset > currentScroll + 15) {
           targetIndex = i;
           break;
@@ -250,8 +256,10 @@ if (weeklyMenu) {
         let bestIndex = 0;
         let minDistance = Infinity;
         const currentScroll = weeklyMenu.scrollLeft;
+        const isMobile = window.innerWidth <= 768;
         cards.forEach((card, i) => {
-          const cardOffset = card.offsetLeft - weeklyMenu.offsetLeft;
+          const centerOffset = isMobile ? (weeklyMenu.clientWidth - card.offsetWidth) / 2 : 0;
+          const cardOffset = card.offsetLeft - weeklyMenu.offsetLeft - centerOffset;
           const dist = Math.abs(cardOffset - currentScroll);
           if (dist < minDistance) {
             minDistance = dist;

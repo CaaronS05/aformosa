@@ -3749,7 +3749,7 @@ footer {
         background: #FFF8EA;
         padding: 0;
         --delivery-bg-width: 100%;
-        --delivery-map-space: 370px;
+        --delivery-map-space: 250px;
         --delivery-bg-offset-y: 0px;
     }
 
@@ -3830,7 +3830,7 @@ footer {
         font-family: var(--heading);
         font-size: clamp(30px, 8.8vw, 34px);
         font-weight: 800;
-        line-height: 0.98;
+        line-height: 1.18;
         letter-spacing: -0.04em;
         color: #574235;
         margin: 0;
