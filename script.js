@@ -594,8 +594,25 @@ if (calculatorForm) {
   calculatorName.addEventListener('input', () => { saveCalculatorProfile(); hideCalculatorResult(); });
   calculatorAge.addEventListener('input', () => { saveCalculatorProfile(); hideCalculatorResult(); });
   document.querySelectorAll('#calc-sex,#calc-height,#calc-weight,#calc-activity').forEach(field => field.addEventListener('input', hideCalculatorResult));
-  document.querySelector('#calc-activity').addEventListener('change', event => { document.querySelector('#activity-hint').textContent = event.target.value ? event.target.selectedOptions[0].textContent : 'Pilih yang paling mendekati rutinitasmu selama seminggu.'; });
-  document.querySelector('#clear-saved-profile').addEventListener('click', () => { try { localStorage.removeItem(storedProfileKey); } catch (error) { } calculatorName.value = ''; calculatorAge.value = ''; hideCalculatorResult(); calculatorName.focus(); });
+  const calcActivityEl = document.querySelector('#calc-activity');
+  const activityHintEl = document.querySelector('#activity-hint');
+  if (calcActivityEl && activityHintEl) {
+    calcActivityEl.addEventListener('change', event => {
+      activityHintEl.textContent = event.target.value
+        ? event.target.selectedOptions?.[0]?.textContent || 'Pilih yang paling mendekati rutinitasmu selama seminggu.'
+        : 'Pilih yang paling mendekati rutinitasmu selama seminggu.';
+    });
+  }
+  const clearProfileBtn = document.querySelector('#clear-saved-profile');
+  if (clearProfileBtn) {
+    clearProfileBtn.addEventListener('click', () => {
+      try { localStorage.removeItem(storedProfileKey); } catch (error) { }
+      calculatorName.value = '';
+      calculatorAge.value = '';
+      hideCalculatorResult();
+      calculatorName.focus();
+    });
+  }
   const activityLevels = {
     sedentary: { label: 'Sedentari — sedikit atau tanpa olahraga', factor: 1.2 },
     light: { label: 'Olahraga 1–3 kali per minggu', factor: 1.375 },
@@ -737,11 +754,13 @@ function initCustomSelects() {
     wrapper._closeCustomSelect = close;
     trigger.addEventListener('click', event => {
       event.preventDefault();
+      event.stopPropagation();
       wrapper.classList.contains('is-open') ? close() : open();
     });
     options.forEach((option, index) => {
       option.addEventListener('click', event => {
         event.preventDefault();
+        event.stopPropagation();
         choose(option);
       });
       option.addEventListener('mouseenter', () => highlight(index));
@@ -797,7 +816,11 @@ function initCustomSelects() {
   });
 }
 
-initCustomSelects();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCustomSelects);
+} else {
+  initCustomSelects();
+}
 const yearEl = document.querySelector('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
