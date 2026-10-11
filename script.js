@@ -9,61 +9,301 @@ document.addEventListener('click', e => { if (!e.target.closest('.site-header'))
 // ==========================================
 // DATA MENU MINGGUAN (Bisa diganti per batch)
 // ==========================================
-const menuData = {
-  batch: 367,
-  start: '2026-10-05',
-  end: '2026-10-10',
-  days: [
-    {
-      day: 'Senin',
-      shortDay: 'Sen',
-      date: '2026-10-05',
-      image: 'assets/hero-studio.jpg',
-      lunch: { name: 'Ayam Saus Kacang', description: 'Nasi merah, tumis sayur & puding', kcal: 565 },
-      dinner: { name: 'Baked Cheese Omelette', description: 'Jagung, sayuran & buah', kcal: 558 }
-    },
-    {
-      day: 'Selasa',
-      shortDay: 'Sel',
-      date: '2026-10-06',
-      image: 'assets/menu-studio-2.jpg',
-      lunch: { name: 'Spaghetti Chicken Mushroom', description: 'Pasta, ayam jamur & bayam', kcal: 582 },
-      dinner: { name: 'Chicken Meatball', description: 'Mashed potato, sayur & buah', kcal: 560 }
-    },
-    {
-      day: 'Rabu',
-      shortDay: 'Rab',
-      date: '2026-10-07',
-      image: 'assets/menu-studio-3.jpg',
-      lunch: { name: 'Ayam Sambal Matah', description: 'Nasi merah, buncis & puding', kcal: 575 },
-      dinner: { name: 'Siomay Bandung', description: 'Bihun, kentang, sayur & buah', kcal: 552 }
-    },
-    {
-      day: 'Kamis',
-      shortDay: 'Kam',
-      date: '2026-10-08',
-      image: 'assets/menu-studio-4.jpg',
-      lunch: { name: 'Classic Fish & Chips', description: 'Potato wedges, sayur & puding', kcal: 580 },
-      dinner: { name: 'Tuna & Egg Salad', description: 'Garlic bread, salad & buah', kcal: 568 }
-    },
-    {
-      day: 'Jumat',
-      shortDay: 'Jum',
-      date: '2026-10-09',
-      image: 'assets/menu-studio-5.jpg',
-      lunch: { name: 'Healthy Ketoprak', description: 'Tahu, telur, bihun & sayuran', kcal: 555 },
-      dinner: { name: 'Golden Chicken', description: 'Nasi merah, bayam & puding', kcal: 588 }
-    },
-    {
-      day: 'Sabtu',
-      shortDay: 'Sab',
-      date: '2026-10-10',
-      image: 'assets/menu-studio-6.jpg',
-      lunch: { name: 'Chicken Katsu Salad', description: 'Ubi, telur, edamame & buah', kcal: 570 },
-      dinner: { name: 'Chicken & Scrambled Egg', description: 'Nasi merah, wortel & sayuran', kcal: 590 }
-    }
-  ]
-};
+const menuWeeks = [
+  {
+    "batch": 370,
+    "start": "2026-09-28",
+    "end": "2026-10-03",
+    "days": [
+      {
+        "day": "Senin",
+        "shortDay": "Sen",
+        "date": "2026-09-28",
+        "lunch": {
+          "name": "Pad Krapow Gai",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 491
+        },
+        "dinner": {
+          "name": "Tuna Spinach Cheese Omelette",
+          "description": "Sauteed Potato + FREE Fresh Fruits",
+          "kcal": 442
+        }
+      },
+      {
+        "day": "Selasa",
+        "shortDay": "Sel",
+        "date": "2026-09-29",
+        "lunch": {
+          "name": "Ayam Goreng Bawang Putih",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 585
+        },
+        "dinner": {
+          "name": "Herb Chicken Burger",
+          "description": "Steamed Veggies + FREE Fresh Fruits",
+          "kcal": 528
+        }
+      },
+      {
+        "day": "Rabu",
+        "shortDay": "Rab",
+        "date": "2026-09-30",
+        "lunch": {
+          "name": "Sweet & Sour Fish",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 513
+        },
+        "dinner": {
+          "name": "Gado2 Salad + Grilled Tumeric Chicken",
+          "description": "FREE Fresh Fruits",
+          "kcal": 637
+        }
+      },
+      {
+        "day": "Kamis",
+        "shortDay": "Kam",
+        "date": "2026-10-01",
+        "lunch": {
+          "name": "Chicken Steak Black Pepper",
+          "description": "Sauteed Potato + FREE Pudding",
+          "kcal": 445
+        },
+        "dinner": {
+          "name": "Haemul Sundubu Jjigae",
+          "description": "Rice Noodle + FREE Fresh Fruits",
+          "kcal": 541
+        }
+      },
+      {
+        "day": "Jumat",
+        "shortDay": "Jum",
+        "date": "2026-10-02",
+        "lunch": {
+          "name": "Tumis Ayam Chili Padi",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 491
+        },
+        "dinner": {
+          "name": "Beef Potato Gratin",
+          "description": "Steamed Veggies + FREE Fresh Fruits",
+          "kcal": 474
+        }
+      },
+      {
+        "day": "Sabtu",
+        "shortDay": "Sab",
+        "date": "2026-10-03",
+        "lunch": {
+          "name": "Spaghetti Aglio Olio",
+          "description": "Tuna & Mushroom + FREE Pudding",
+          "kcal": 562
+        },
+        "dinner": {
+          "name": "Ground Chicken Fajitas Salad",
+          "description": "Sauteed Potato + FREE Fresh Fruits",
+          "kcal": 526
+        }
+      }
+    ]
+  },
+  {
+    "batch": 371,
+    "start": "2026-10-05",
+    "end": "2026-10-10",
+    "days": [
+      {
+        "day": "Senin",
+        "shortDay": "Sen",
+        "date": "2026-10-05",
+        "lunch": {
+          "name": "Sonboro Donburi",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 457
+        },
+        "dinner": {
+          "name": "Gochujang Chicken Salad",
+          "description": "Sauteed Potato + FREE Fresh Fruits",
+          "kcal": 532
+        }
+      },
+      {
+        "day": "Selasa",
+        "shortDay": "Sel",
+        "date": "2026-10-06",
+        "lunch": {
+          "name": "Dory Sambal Matah",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 513
+        },
+        "dinner": {
+          "name": "Spicy Chicken Sandwich",
+          "description": "Steamed Veggies + FREE Fresh Fruits",
+          "kcal": 778
+        }
+      },
+      {
+        "day": "Rabu",
+        "shortDay": "Rab",
+        "date": "2026-10-07",
+        "lunch": {
+          "name": "Tempong Ayam",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 620
+        },
+        "dinner": {
+          "name": "Soto Betawi - Beef",
+          "description": "Rice Noodle + FREE Fresh Fruits",
+          "kcal": 516
+        }
+      },
+      {
+        "day": "Kamis",
+        "shortDay": "Kam",
+        "date": "2026-10-08",
+        "lunch": {
+          "name": "Kungpao Chicken",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 635
+        },
+        "dinner": {
+          "name": "Tomato Prawn Bowl Soup",
+          "description": "Garlic Bread + FREE Fresh Fruits",
+          "kcal": 487
+        }
+      },
+      {
+        "day": "Jumat",
+        "shortDay": "Jum",
+        "date": "2026-10-09",
+        "lunch": {
+          "name": "Spaghetti Pesto",
+          "description": "Herb Chicken Ball & Mushrooms + FREE Pudding",
+          "kcal": 678
+        },
+        "dinner": {
+          "name": "Tuna Croquettes",
+          "description": "Steamed Veggies + FREE Fresh Fruits",
+          "kcal": 368
+        }
+      },
+      {
+        "day": "Sabtu",
+        "shortDay": "Sab",
+        "date": "2026-10-10",
+        "lunch": {
+          "name": "Beef Teriyaki",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 449
+        },
+        "dinner": {
+          "name": "Chicken Katsu Salad",
+          "description": "Sweet Potato + FREE Fresh Fruits",
+          "kcal": 595
+        }
+      }
+    ]
+  },
+  {
+    "batch": 372,
+    "start": "2026-10-12",
+    "end": "2026-10-17",
+    "days": [
+      {
+        "day": "Senin",
+        "shortDay": "Sen",
+        "date": "2026-10-12",
+        "lunch": {
+          "name": "Stir Fry Chicken & Mushroom",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 452
+        },
+        "dinner": {
+          "name": "Healthy Tuna Salad",
+          "description": "Sauteed Potato + FREE Fresh Fruits",
+          "kcal": 396
+        }
+      },
+      {
+        "day": "Selasa",
+        "shortDay": "Sel",
+        "date": "2026-10-13",
+        "lunch": {
+          "name": "Creamy Onion Chicken",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 635
+        },
+        "dinner": {
+          "name": "Beef Patty Melt Sandwich",
+          "description": "Steamed Veggies + FREE Fresh Fruits",
+          "kcal": 742
+        }
+      },
+      {
+        "day": "Rabu",
+        "shortDay": "Rab",
+        "date": "2026-10-14",
+        "lunch": {
+          "name": "Thai Green Curry Chicken",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 685
+        },
+        "dinner": {
+          "name": "Siomay Bandung (Chicken, Tofu, Potato, Egg)",
+          "description": "FREE Fresh Fruits",
+          "kcal": 547
+        }
+      },
+      {
+        "day": "Kamis",
+        "shortDay": "Kam",
+        "date": "2026-10-15",
+        "lunch": {
+          "name": "Butter Milk Fish",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 513
+        },
+        "dinner": {
+          "name": "Egg & Chicken Salad Sandwich",
+          "description": "Steamed Veggies + FREE Fresh Fruits",
+          "kcal": 634
+        }
+      },
+      {
+        "day": "Jumat",
+        "shortDay": "Jum",
+        "date": "2026-10-16",
+        "lunch": {
+          "name": "Beef Bulgogi",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 449
+        },
+        "dinner": {
+          "name": "Baked Potato Ground Chicken & Beans",
+          "description": "FREE Fresh Fruits",
+          "kcal": 677
+        }
+      },
+      {
+        "day": "Sabtu",
+        "shortDay": "Sab",
+        "date": "2026-10-17",
+        "lunch": {
+          "name": "Bakmoy Ayam",
+          "description": "Red Rice + FREE Pudding",
+          "kcal": 438
+        },
+        "dinner": {
+          "name": "Galantine Chicken",
+          "description": "Potato Wedges + FREE Fresh Fruits",
+          "kcal": 695
+        }
+      }
+    ]
+  }
+];
+let selectedWeek = 1;
+let menuData = menuWeeks[selectedWeek];
 
 const smallIcons = {
   lunch: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/>',
@@ -80,7 +320,16 @@ const menuPrevBtn = document.querySelector('#menu-prev');
 const menuNextBtn = document.querySelector('#menu-next');
 
 if (weeklyMenu) {
-  // 1. Render Day Tabs, Cards, and Dots
+  let activeMenuIndex = 0;
+  let cards = [];
+  let tabs = [];
+  let dots = [];
+
+  function renderWeek() {
+    weeklyMenu.replaceChildren();
+    menuTabsContainer?.replaceChildren();
+    menuDotsContainer?.replaceChildren();
+  // Render Day Tabs, Cards, and Dots
   menuData.days.forEach((day, index) => {
     // Tab Button
     if (menuTabsContainer) {
@@ -177,9 +426,36 @@ if (weeklyMenu) {
     }
   });
 
-  const cards = weeklyMenu.querySelectorAll('.menu-card');
-  const tabs = menuTabsContainer ? menuTabsContainer.querySelectorAll('.menu-tab-btn') : [];
-  const dots = menuDotsContainer ? menuDotsContainer.querySelectorAll('.menu-dot') : [];
+  cards = weeklyMenu.querySelectorAll('.menu-card');
+  tabs = menuTabsContainer ? menuTabsContainer.querySelectorAll('.menu-tab-btn') : [];
+  dots = menuDotsContainer ? menuDotsContainer.querySelectorAll('.menu-dot') : [];
+  const formatDate = value => new Date(value + 'T12:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long' });
+  const range = `${formatDate(menuData.start)}–${formatDate(menuData.end)} 2026`;
+  document.querySelector('#menu-batch-number').textContent = `Batch ${menuData.batch}`;
+  document.querySelector('#menu-batch-dates').textContent = range;
+  document.querySelector('#menu-batch-status').textContent = ['Menu minggu lalu', 'Menu minggu ini', 'Menu minggu depan'][selectedWeek];
+  document.querySelectorAll('.menu-week-btn').forEach((button, index) => {
+    button.classList.toggle('active', index === selectedWeek);
+    button.setAttribute('aria-pressed', String(index === selectedWeek));
+  });
+  const ctaLabel = ['Konsultasi pilihan menu', 'Tanya menu minggu ini', 'Tanya menu minggu depan'][selectedWeek];
+  const message = `Halo Aformosa, saya ingin ${selectedWeek === 0 ? 'konsultasi pilihan menu setelah melihat' : 'bertanya tentang'} Batch ${menuData.batch} (${range}).`;
+  document.querySelectorAll('.batch-bar__cta, .weekly-menu__cta').forEach(link => {
+    link.querySelector('.menu-cta-label').textContent = ctaLabel;
+    link.href = `https://wa.me/6281284584489?text=${encodeURIComponent(message)}`;
+  });
+  weeklyMenu.setAttribute('aria-label', `Menu Batch ${menuData.batch}, ${range}`);
+  weeklyMenu.scrollTo({ left: 0, behavior: 'instant' });
+  updateActiveState(0);
+  }
+
+  document.querySelectorAll('.menu-week-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      selectedWeek = Number(button.dataset.week);
+      menuData = menuWeeks[selectedWeek];
+      renderWeek();
+    });
+  });
 
   // Function to smoothly scroll to a specific card
   function scrollToCard(index) {
@@ -194,6 +470,7 @@ if (weeklyMenu) {
 
   // Update tabs, dots, and navigation button disabled states
   function updateActiveState(activeIndex) {
+    activeMenuIndex = activeIndex;
     tabs.forEach((tab, i) => {
       const isActive = i === activeIndex;
       tab.classList.toggle('active', isActive);
@@ -273,8 +550,58 @@ if (weeklyMenu) {
     }
   }, { passive: true });
 
-  // Initial update
-  updateActiveState(0);
+  // Advance only while the menu is visible and the visitor is not interacting.
+  const menuSection = weeklyMenu.closest('.weekly-menu');
+  const reducedMenuMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let menuIsVisible = false;
+  let menuPointerDown = false;
+  let menuHovered = false;
+  let menuResumeAt = 0;
+  const pauseMenuAutoscroll = () => { menuResumeAt = Date.now() + 10000; };
+
+  if ('IntersectionObserver' in window) {
+    const menuVisibilityObserver = new IntersectionObserver(entries => {
+      menuIsVisible = entries[0].isIntersecting;
+      if (menuIsVisible) menuResumeAt = Date.now() + 5000;
+    }, { threshold: 0.5 });
+    menuVisibilityObserver.observe(weeklyMenu);
+  } else {
+    menuIsVisible = true;
+  }
+
+  menuSection.addEventListener('pointerdown', () => {
+    menuPointerDown = true;
+    pauseMenuAutoscroll();
+  }, { passive: true });
+  ['pointerup', 'pointercancel'].forEach(type => window.addEventListener(type, () => {
+    if (menuPointerDown) {
+      menuPointerDown = false;
+      pauseMenuAutoscroll();
+    }
+  }, { passive: true }));
+  menuSection.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse') menuHovered = true;
+  });
+  menuSection.addEventListener('pointerleave', () => {
+    menuHovered = false;
+    pauseMenuAutoscroll();
+  });
+  ['wheel', 'keydown', 'click', 'focusout'].forEach(type => {
+    menuSection.addEventListener(type, pauseMenuAutoscroll, { passive: true });
+  });
+
+  window.setInterval(() => {
+    if (!menuIsVisible || document.hidden || reducedMenuMotion.matches ||
+        menuPointerDown || menuHovered || Date.now() < menuResumeAt ||
+        menuSection.contains(document.activeElement) || cards.length < 2) return;
+    const maxScroll = Math.max(0, weeklyMenu.scrollWidth - weeklyMenu.clientWidth);
+    const nextIndex = weeklyMenu.scrollLeft >= maxScroll - 10 ? 0 : (activeMenuIndex + 1) % cards.length;
+    scrollToCard(nextIndex);
+    menuResumeAt = Date.now() + 5000;
+  }, 1000);
+
+  // Initial week
+  renderWeek();
 
   // Mouse Drag-to-scroll for Desktop
   let isDragging = false;

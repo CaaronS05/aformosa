@@ -601,13 +601,13 @@ p {
 
     /* Mobile Hero: background image only, full vertical composition visible without crop */
     .hero {
-        background-image: url("assets/backgrounds/hero-bg-mobile.png");
+        background-image: url("assets/hero mobile.jpeg");
         background-repeat: no-repeat;
         background-position: center top;
         background-size: 100% auto;
         min-height: auto;
         height: auto;
-        aspect-ratio: 941 / 1672;
+        aspect-ratio: 900 / 1600;
         width: 100%;
         position: relative;
         overflow: hidden;
@@ -759,7 +759,8 @@ p {
         flex-shrink: 0;
     }
 
-    /* CRITICAL: Remove mobile duplicates already inside hero-bg-mobile.png */
+    /* The mobile promo image includes its own text, CTA, and visuals. */
+    .hero-copy,
     .hero-visual,
     .hero-benefits,
     .hero-mini-pills,
@@ -5328,5 +5329,81 @@ body.contact-region-modal-open {
     .menu-dot,
     .menu-photo img {
         transition: none !important;
+    }
+}
+/* Weekly batch selector */
+.menu-week-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.menu-week-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 16px;
+    border: 1px solid rgba(87, 66, 53, .15);
+    border-radius: 999px;
+    background: #FFFDF8;
+    color: #574235;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+.menu-week-btn.active {
+    background: #DE6706;
+    border-color: #DE6706;
+    color: #fff;
+}
+.menu-week-btn:focus-visible {
+    outline: 3px solid #574235;
+    outline-offset: 3px;
+}
+@media (max-width: 768px) {
+    .menu-week-controls { gap: 6px; margin-bottom: 16px; }
+    .menu-week-btn { padding: 12px 6px; font-size: 12px; }
+}
+
+/* Week controls replace day tabs; mobile cards sit evenly inside the viewport. */
+.menu-carousel-toolbar .menu-week-controls {
+    flex: 1;
+    margin-bottom: 0;
+}
+@media (max-width: 768px) {
+    .weekly-menu .menu-carousel-toolbar {
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+    .weekly-menu .menu-carousel-track {
+        padding-inline: 24px;
+        scroll-padding-inline: 24px;
+    }
+    .weekly-menu .menu-carousel-track .menu-card {
+        flex: 0 0 100%;
+        min-width: 0;
+        max-width: 100%;
+        scroll-snap-align: center;
+    }
+    .weekly-menu .menu-carousel-footer {
+        justify-content: center;
+    }
+}
+
+/* Clickable area over the WhatsApp CTA printed in the mobile hero image. */
+.hero-mobile-whatsapp { display: none; }
+@media (max-width: 768px) {
+    .hero-mobile-whatsapp {
+        display: block;
+        position: absolute;
+        left: 17%;
+        top: 82.5%;
+        width: 68%;
+        height: 7.5%;
+        border-radius: 999px;
+        z-index: 4;
+        cursor: pointer;
+    }
+    .hero-mobile-whatsapp:focus-visible {
+        outline: 3px solid #574235;
+        outline-offset: 3px;
     }
 }

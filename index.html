@@ -116,6 +116,8 @@
 
                 </div>
             </div>
+            <a class="hero-mobile-whatsapp" href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
+                aria-label="Pesan sekarang via WhatsApp" target="_blank" rel="noopener noreferrer"></a>
         </section>
         <section class="city-strip-section" aria-label="Area layanan Aformosa">
             <div class="container city-strip">
@@ -132,26 +134,29 @@
                 <div class="section-heading centered weekly-menu__header"><span class="eyebrow spark">Menu
                         mingguan</span>
                     <h2>Setiap hari,<br><span class="underline">ada rasa baru.</span></h2>
-                    <p>Dari cita rasa lokal sampai menu favoritmu.<br>Kenalan dengan contoh menu Aformosa selama satu
-                        minggu.</p>
+                    <p>Dari cita rasa lokal sampai menu favoritmu.<br>Lihat menu Aformosa minggu lalu, minggu ini, dan minggu depan.</p>
                 </div>
-                <div class="batch-bar">
-                    <div class="batch-title"><strong>Batch 367</strong><span><svg aria-hidden="true" viewBox="0 0 24 24"
+                <div class="batch-bar" aria-live="polite" aria-atomic="true">
+                    <div class="batch-title"><strong id="menu-batch-number">Batch 371</strong><span><svg aria-hidden="true" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <rect x="3" y="5" width="18" height="16" rx="3" />
                                 <path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1" />
-                            </svg><span>5–10 Oktober<small>Contoh menu mingguan</small></span></span></div><a
+                            </svg><span><span id="menu-batch-dates">5–10 Oktober 2026</span><small id="menu-batch-status">Menu minggu ini</small></span></span></div><a
                         class="button primary batch-bar__cta"
                         href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
-                        target="_blank" rel="noopener noreferrer">Tanya menu terbaru<svg aria-hidden="true"
+                        target="_blank" rel="noopener noreferrer"><span class="menu-cta-label">Tanya menu minggu ini</span><svg aria-hidden="true"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 12h16m-6-6 6 6-6 6" />
                         </svg></a>
                 </div>
                 <div class="menu-carousel-toolbar">
-                    <div class="menu-controls" role="tablist" aria-label="Pilih hari menu" id="menu-day-tabs"></div>
+<div class="menu-week-controls" role="group" aria-label="Pilih minggu menu">
+                    <button type="button" class="menu-week-btn" data-week="0" aria-pressed="false">Minggu lalu</button>
+                    <button type="button" class="menu-week-btn active" data-week="1" aria-pressed="true">Minggu ini</button>
+                    <button type="button" class="menu-week-btn" data-week="2" aria-pressed="false">Minggu depan</button>
+                </div>
                     <div class="menu-carousel-nav" aria-label="Navigasi menu">
                         <button type="button" class="menu-nav-btn menu-nav-btn--prev" id="menu-prev"
                             aria-label="Menu hari sebelumnya">
@@ -179,7 +184,7 @@
                 <div class="weekly-menu__cta-wrapper">
                     <a class="button primary weekly-menu__cta"
                         href="https://wa.me/6281284584489?text=Halo%20Aformosa%2C%20saya%20ingin%20konsultasi%20paket%20dan%20harga%20catering%20sehat."
-                        target="_blank" rel="noopener noreferrer">Tanya menu terbaru <svg aria-hidden="true"
+                        target="_blank" rel="noopener noreferrer"><span class="menu-cta-label">Tanya menu minggu ini</span> <svg aria-hidden="true"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 12h16m-6-6 6 6-6 6" />
