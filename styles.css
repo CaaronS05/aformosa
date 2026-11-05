@@ -601,13 +601,13 @@ p {
 
     /* Mobile Hero: background image only, full vertical composition visible without crop */
     .hero {
-        background-image: url("assets/hero mobile.jpeg");
+        background-image: var(--mobile-hero-image, url("assets/hero mobile.jpeg"));
         background-repeat: no-repeat;
         background-position: center top;
         background-size: 100% auto;
         min-height: auto;
         height: auto;
-        aspect-ratio: 900 / 1600;
+        aspect-ratio: var(--mobile-hero-ratio, 900 / 1600);
         width: 100%;
         position: relative;
         overflow: hidden;

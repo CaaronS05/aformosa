@@ -9,7 +9,7 @@ document.addEventListener('click', e => { if (!e.target.closest('.site-header'))
 // ==========================================
 // DATA MENU MINGGUAN (Bisa diganti per batch)
 // ==========================================
-const menuWeeks = [
+const menuWeeks = window.aformosaContent?.weeks ?? [
   {
     "batch": 370,
     "start": "2026-09-28",
@@ -302,6 +302,17 @@ const menuWeeks = [
     ]
   }
 ];
+const mobileBanner = window.aformosaContent?.banner;
+if (mobileBanner) {
+  const hero = document.querySelector('.hero');
+  hero.style.setProperty('--mobile-hero-image', 'url("cms/index.php?banner=1")');
+  hero.style.setProperty('--mobile-hero-ratio', mobileBanner.width + ' / ' + mobileBanner.height);
+}
+
+const menuText = value => String(value).replace(/[&<>"']/g, character => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[character]);
+
 let selectedWeek = 1;
 let menuData = menuWeeks[selectedWeek];
 
@@ -389,8 +400,8 @@ if (weeklyMenu) {
 
     card.innerHTML = `
       <div class="menu-card-heading">
-        <span class="day-pill">${day.day}</span>
-        <time datetime="${day.date}">${formattedDate}</time>
+        <span class="day-pill">${menuText(day.day)}</span>
+        <time datetime="${menuText(day.date)}">${formattedDate}</time>
       </div>
     `;
     card.appendChild(photoContainer);
@@ -405,8 +416,8 @@ if (weeklyMenu) {
           </svg>
           ${type === 'lunch' ? 'Makan siang' : 'Makan malam'}
         </span>
-        <h3>${day[type].name}</h3>
-        <p>${day[type].description}</p>
+        <h3>${menuText(day[type].name)}</h3>
+        <p>${menuText(day[type].description)}</p>
         <span class="kcal">${day[type].kcal} kkal</span>
       </div>
     `).join('');

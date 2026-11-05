@@ -1,0 +1,14 @@
+:root { font: 100%/1.5 system-ui, sans-serif; color: #49372c; background: #fff8eb; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 65rem; margin: auto; padding: 1.5rem; }
+nav, .grid { display: flex; flex-wrap: wrap; gap: 1rem; align-items: start; }
+.grid > * { flex: 1 1 13rem; }
+section, details, fieldset { padding: 1rem; margin: 1rem 0; min-width: 0; background: #fffdfa; border: 1px solid #dccdbb; border-radius: .75rem; }
+label { display: block; margin: .5rem 0; }
+input { display: block; width: 100%; padding: .5rem; font: inherit; color: inherit; }
+button, summary { cursor: pointer; font-weight: 700; }
+button { padding: .65rem 1rem; border: 0; border-radius: .6rem; background: #a34800; color: white; font-size: 1rem; }
+a { color: #8b3c00; }
+.preview { display: block; width: 10rem; max-width: 100%; }
+[role="alert"] { color: #9a2525; }
